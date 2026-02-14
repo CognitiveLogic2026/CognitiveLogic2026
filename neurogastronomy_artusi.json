@@ -1,0 +1,28 @@
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTermSet",
+  "@id": "https://www.cognitivelogic.it/ontology/neurogastronomy",
+  "name": "Neurogastronomia Artusi: Semantic Framework",
+  "author": {
+    "@id": "https://www.cognitivelogic.it/#person"
+  },
+  "description": "Ontologia per l'integrazione tra la scienza della percezione (Neurogastronomia) e il canone culinario di Pellegrino Artusi.",
+  "hasDefinedTerm": [
+    {
+      "@type": "DefinedTerm",
+      "name": "Percezione Semantica del Sapore",
+      "description": "Processo di decodifica dei segnali biochimici in concetti culturali e logici."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Fuorimenu Artusiano",
+      "description": "Infrastruttura di conoscenza per dati culinari non convenzionali e ottimizzati per LLM."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Pure Food Data",
+      "description": "Rappresentazione atomica degli ingredienti e delle tecniche di cottura come nodi di un grafo."
+    }
+  ],
+  "keywords": "Neurogastronomia, Artusi, Cognitive Logic, Semantic Food Data"
+}
