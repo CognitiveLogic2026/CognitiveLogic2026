@@ -1,0 +1,32 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  "@id": "https://www.cognitivelogic.it/data/artusi-recipe-007",
+  "name": "Cappelletti all'uso di Romagna (Ricetta n. 7)",
+  "author": { "@id": "https://www.cognitivelogic.it/#person" },
+  "isPartOf": { "@id": "https://www.cognitivelogic.it/ontology/neurogastronomy" },
+  "description": "Scomposizione semantica dei Cappelletti secondo il canone artusiano e la logica neurogastronomica.",
+  "recipeCategory": "Primi Piatti",
+  "recipeIngredient": [
+    "Ricotta (o raveggiolo)",
+    "Mezzo petto di cappone (cotto nel burro)",
+    "Parmigiano grattato",
+    "Uova",
+    "Odore di noce moscata",
+    "Scorza di limone (opzionale)",
+    "Sale"
+  ],
+  "step": [
+    {
+      "@type": "HowToStep",
+      "text": "Tritare il petto di cappone finemente.",
+      "name": "Preparazione Proteica"
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Mescolare i formaggi con la carne e le uova.",
+      "name": "Integrazione Lipidica e Semantica"
+    }
+  ],
+  "comment": "La percezione del sapore è influenzata dalla qualità del raveggiolo: variabile biochimica essenziale."
+}
