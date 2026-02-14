@@ -1,16 +1,19 @@
-## Hi there 👋
+# Roberto Bob Malini
+### AI Data Architect & Founder of [Cognitive Logic](https://www.cognitivelogic.it)
 
-<!--
-**CognitiveLogic2026/CognitiveLogic2026** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+> "Beyond the graphical interface: data must be intelligible, transparent, and immediately operational for autonomous agents."
 
-Here are some ideas to get you started:
+---
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## 🛠️ Expertise
+* **Logical Architectures & Semantic Modeling**
+* **Knowledge Graph Engineering**
+* **Digital Identity Verification**
+
+## 🌐 Digital Ecosystem
+* **Core Project:** [Cognitive Logic](https://www.cognitivelogic.it) — Pure Data Nodes for LLMs.
+* **Editorial:** [Fuorimenu su Substack](https://fuorimenu.substack.com) — Neurogastronomia Artusi.
+* **Professional:** [LinkedIn Profile](https://www.linkedin.com/in/robertobobmalini) (Verified).
+
+---
+*Focalizzato sulla creazione di infrastrutture di conoscenza ottimizzate per l'Intelligenza Artificiale.*
