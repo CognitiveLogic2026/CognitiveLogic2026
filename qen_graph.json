@@ -1,0 +1,283 @@
+{
+  "meta": {
+    "name": "QEN - Quantum Ethics Network",
+    "version": "1.0",
+    "author": "Roberto Bob Malini | Cognitive Logic",
+    "created": "2026-03-15",
+    "description": "Semantic Graph Framework for Computable AI Compliance",
+    "fingerprint": "827B 7A5F D444 7C00 DB50 FA03 D180 E9C9 4244 CE06"
+  },
+
+  "nodes": {
+
+    "frameworks": [
+      {
+        "id": "QEN",
+        "label": "Framework",
+        "name": "Quantum Ethics Network",
+        "description": "Semantic Graph Framework for Computable AI Compliance",
+        "status": "active",
+        "version": "1.0"
+      },
+      {
+        "id": "gastronativismo",
+        "label": "Framework",
+        "name": "Gastronativismo",
+        "author": "Fabio Parasecoli",
+        "year": 2021,
+        "domain": "food_ethics"
+      }
+    ],
+
+    "regulations": [
+      {
+        "id": "AI_ACT",
+        "label": "Regulation",
+        "name": "AI Act",
+        "fullName": "EU Artificial Intelligence Act",
+        "year": 2024,
+        "scope": "Sistemi AI ad alto rischio",
+        "status": "in_force"
+      },
+      {
+        "id": "GDPR",
+        "label": "Regulation",
+        "name": "GDPR",
+        "fullName": "General Data Protection Regulation",
+        "year": 2018,
+        "scope": "Protezione dei dati personali",
+        "status": "in_force",
+        "gdprApplicable": true
+      },
+      {
+        "id": "DSA",
+        "label": "Regulation",
+        "name": "DSA",
+        "fullName": "Digital Services Act",
+        "year": 2022,
+        "scope": "Servizi digitali e piattaforme",
+        "status": "in_force"
+      }
+    ],
+
+    "articles": [
+      { "id": "Art9",  "label": "Article", "regulation": "AI_ACT", "title": "Risk Management System" },
+      { "id": "Art10", "label": "Article", "regulation": "AI_ACT", "title": "Data Governance" },
+      { "id": "Art13", "label": "Article", "regulation": "AI_ACT", "title": "Transparency" },
+      { "id": "Art14", "label": "Article", "regulation": "AI_ACT", "title": "Human Oversight" },
+      { "id": "Art15", "label": "Article", "regulation": "AI_ACT", "title": "Accuracy and Robustness" }
+    ],
+
+    "trust_anchors": [
+      {
+        "id": "TA_HUMAN_OVERSIGHT",
+        "label": "Principle",
+        "name": "Human Oversight",
+        "weight": 0.92,
+        "source": "AI Act Art.14",
+        "article": "Art14",
+        "trustAnchor": true
+      },
+      {
+        "id": "TA_TRANSPARENCY",
+        "label": "Principle",
+        "name": "Transparency",
+        "weight": 0.90,
+        "source": "AI Act Art.13",
+        "article": "Art13",
+        "trustAnchor": true
+      },
+      {
+        "id": "TA_FAIRNESS",
+        "label": "Principle",
+        "name": "Fairness",
+        "weight": 0.87,
+        "source": "AI Act Art.10",
+        "article": "Art10",
+        "trustAnchor": true
+      },
+      {
+        "id": "TA_ACCOUNTABILITY",
+        "label": "Principle",
+        "name": "Accountability",
+        "weight": 0.85,
+        "source": "AI Act Art.17",
+        "article": "Art15",
+        "trustAnchor": true
+      }
+    ],
+
+    "principles": [
+      { "id": "P_ETHICAL_IMPACT",    "label": "Principle", "name": "Ethical Impact",    "weight": 0.88, "source": "AI Act Art.9",  "trustAnchor": false },
+      { "id": "P_NON_DISCRIMINATION","label": "Principle", "name": "Non-Discrimination","weight": 0.85, "source": "AI Act Art.10", "trustAnchor": false },
+      { "id": "P_DATA_MINIMIZATION", "label": "Principle", "name": "Data Minimization", "weight": 0.83, "source": "GDPR Art.5",    "trustAnchor": false },
+      { "id": "P_USER_CONTROL",      "label": "Principle", "name": "User Control",      "weight": 0.82, "source": "GDPR Art.7",    "trustAnchor": false },
+      { "id": "P_DATA_ACCURACY",     "label": "Principle", "name": "Data Accuracy",     "weight": 0.80, "source": "GDPR Art.5",    "trustAnchor": false }
+    ],
+
+    "controls": [
+      { "id": "C_HUMAN_OVERSIGHT",   "label": "Control", "name": "HumanOversightControl",  "type": "procedural", "mandatory": true,  "enforces": "TA_HUMAN_OVERSIGHT" },
+      { "id": "C_TRANSPARENCY_LOG",  "label": "Control", "name": "TransparencyLog",         "type": "technical",  "mandatory": true,  "enforces": "TA_TRANSPARENCY" },
+      { "id": "C_BIAS_AUDIT",        "label": "Control", "name": "BiasAudit",               "type": "technical",  "mandatory": true,  "enforces": "TA_FAIRNESS" },
+      { "id": "C_AUDIT_TRAIL",       "label": "Control", "name": "AuditTrail",              "type": "technical",  "mandatory": true,  "enforces": "TA_ACCOUNTABILITY" },
+      { "id": "C_DATA_MINIMIZATION", "label": "Control", "name": "DataMinimizationCheck",   "type": "procedural", "mandatory": true,  "enforces": "P_DATA_MINIMIZATION" },
+      { "id": "C_CONSENT",           "label": "Control", "name": "ConsentVerification",     "type": "procedural", "mandatory": true,  "enforces": "P_USER_CONTROL" },
+      { "id": "C_ACCURACY",          "label": "Control", "name": "AccuracyMonitor",         "type": "technical",  "mandatory": false, "enforces": "P_DATA_ACCURACY" },
+      { "id": "C_RISK_CLASSIFIER",   "label": "Control", "name": "RiskClassifier",          "type": "technical",  "mandatory": true,  "enforces": "TA_HUMAN_OVERSIGHT" },
+      { "id": "C_EXPLAINABILITY",    "label": "Control", "name": "ExplainabilityModule",    "type": "technical",  "mandatory": false, "enforces": "TA_TRANSPARENCY" }
+    ],
+
+    "algorithms": [
+      {
+        "id": "ALG_COLT",
+        "label": "Algorithm",
+        "name": "ColtFragranzaRecommender",
+        "project": "Colt in Fragranza",
+        "type": "recommendation",
+        "version": "1.0",
+        "riskLevel": "HIGH",
+        "aiActClass": "Alto Rischio",
+        "ethicsScore": 0.76,
+        "dataSources": ["DS_FRAGRANCE", "DS_OLFACTORY"],
+        "useCase": "Recommendation"
+      },
+      {
+        "id": "ALG_BOLOGNA",
+        "label": "Algorithm",
+        "name": "Bologna100BottegheScorer",
+        "project": "Bologna100Botteghe",
+        "type": "scoring",
+        "version": "1.0",
+        "riskLevel": "HIGH",
+        "aiActClass": "Alto Rischio",
+        "ethicsScore": 0.85,
+        "dataSources": ["DS_BOLOGNA_RETAIL", "DS_SHOP_METRICS"],
+        "useCase": "Retail"
+      },
+      {
+        "id": "ALG_VEGANOO",
+        "label": "Algorithm",
+        "name": "VeganooRecommender",
+        "project": "Veganoo",
+        "type": "recommendation",
+        "version": "2.1",
+        "riskLevel": "LOW",
+        "aiActClass": "Rischio Limitato",
+        "ethicsScore": 0.90,
+        "dataSources": ["DS_VEGANOO_FOOD", "DS_FOOD_PREFS"],
+        "useCase": "Marketplace"
+      }
+    ],
+
+    "data_sources": [
+      { "id": "DS_USER_PROFILES",   "label": "DataSource", "name": "UserProfiles",        "sensitivity": "HIGH",   "type": "personal",      "gdprApplicable": true },
+      { "id": "DS_PURCHASE",        "label": "DataSource", "name": "PurchaseHistory",     "sensitivity": "MEDIUM", "type": "behavioral",    "gdprApplicable": true },
+      { "id": "DS_OLFACTORY",       "label": "DataSource", "name": "OlfactoryPrefs",      "sensitivity": "MEDIUM", "type": "personal",      "gdprApplicable": true },
+      { "id": "DS_SHOP_METRICS",    "label": "DataSource", "name": "ShopMetrics",         "sensitivity": "LOW",    "type": "commercial",    "gdprApplicable": false },
+      { "id": "DS_GEO",             "label": "DataSource", "name": "GeoData",             "sensitivity": "HIGH",   "type": "localization",  "gdprApplicable": true },
+      { "id": "DS_NUTRITIONAL",     "label": "DataSource", "name": "NutritionalData",     "sensitivity": "LOW",    "type": "product",       "gdprApplicable": false },
+      { "id": "DS_FOOD_PREFS",      "label": "DataSource", "name": "FoodPreferences",     "sensitivity": "LOW",    "type": "behavioral",    "gdprApplicable": true },
+      { "id": "DS_BOLOGNA_RETAIL",  "label": "DataSource", "name": "BolognaRetailDataset","sensitivity": "LOW",    "type": "commercial",    "gdprApplicable": false },
+      { "id": "DS_FRAGRANCE",       "label": "DataSource", "name": "FragranceUserDataset","sensitivity": "MEDIUM", "type": "personal",      "gdprApplicable": true },
+      { "id": "DS_VEGANOO_FOOD",    "label": "DataSource", "name": "VeganooFoodDataset",  "sensitivity": "LOW",    "type": "product",       "gdprApplicable": false }
+    ],
+
+    "vectors": [
+      { "id": "V_SOCIALE",     "label": "Vector", "name": "Sociale",           "weight": 0.40 },
+      { "id": "V_AMBIENTALE",  "label": "Vector", "name": "Ambientale",        "weight": 0.35 },
+      { "id": "V_TERRITORIALE","label": "Vector", "name": "Territoriale",      "weight": 0.25 },
+      { "id": "V_BIAS",        "label": "Vector", "name": "Bias Risk Vector",  "weight": null },
+      { "id": "V_DATA",        "label": "Vector", "name": "Data Governance Vector", "weight": null }
+    ],
+
+    "indicators": [
+      { "id": "VS_INC",           "label": "Indicator", "name": "Inclusione lavorativa", "unit": "%",        "vector": "V_SOCIALE" },
+      { "id": "VS_STAB",          "label": "Indicator", "name": "StabilitÃ  del lavoro",  "unit": "%",        "vector": "V_SOCIALE" },
+      { "id": "VS_FORM",          "label": "Indicator", "name": "Formazione",            "unit": "ore/dip",  "vector": "V_SOCIALE" },
+      { "id": "BIAS_SCORE",       "label": "Indicator", "name": "Bias Detection Score",  "unit": "score",    "vector": "V_BIAS" },
+      { "id": "DATA_TRACEABILITY","label": "Indicator", "name": "Dataset Traceability",  "unit": "score",    "vector": "V_DATA" }
+    ],
+
+    "pure_data": [
+      {
+        "id": "PD_NEURAL_MAPPING",
+        "label": "PureData",
+        "concept": "Neural Mapping",
+        "status": "Verified",
+        "updatedAt": "2026-02-09T17:25:02.990Z",
+        "elementId": "4:26cc9285-f78a-431d-9ca9-270c6f340c09:3"
+      },
+      {
+        "id": "PD_SEMANTIC_INTEGRATION",
+        "label": "PureData",
+        "concept": "Semantic Integration",
+        "description": "Fusione di flussi di dati eterogenei in un unico modello logico.",
+        "status": "Verified",
+        "updatedAt": "2026-02-09T17:25:02.990Z",
+        "elementId": "4:26cc9285-f78a-431d-9ca9-270c6f340c09:2"
+      }
+    ],
+
+    "tools": [
+      { "id": "T_PYTHON",  "label": "Tool", "name": "Python Logic",          "elementId": "4:26cc9285-f78a-431d-9ca9-270c6f340c09:5" },
+      { "id": "T_LLM",     "label": "Tool", "name": "LLM Engine",            "elementId": "4:26cc9285-f78a-431d-9ca9-270c6f340c09:6" },
+      { "id": "T_DOCKER",  "label": "Tool", "name": "Docker Infrastructure", "elementId": "4:26cc9285-f78a-431d-9ca9-270c6f340c09:7" }
+    ],
+
+    "tenants": [
+      { "id": "tenant_001", "label": "Azienda", "name": "Company A" },
+      { "id": "tenant_002", "label": "Azienda", "name": "Company B" },
+      { "id": "demo_001",   "label": "Azienda", "name": "Demo Company" }
+    ],
+
+    "project": {
+      "id": "COGNITIVE_LOGIC",
+      "label": "Project",
+      "name": "Cognitive Logic",
+      "year": 2026,
+      "description": "Infrastruttura europea per la governance computabile dell'AI",
+      "version": "1.0",
+      "website": "cognitivelogic.it"
+    }
+  },
+
+  "edges": [
+    { "from": "COGNITIVE_LOGIC", "to": "QEN",              "type": "USES" },
+    { "from": "QEN",             "to": "AI_ACT",           "type": "IMPLEMENTS" },
+    { "from": "QEN",             "to": "GDPR",             "type": "IMPLEMENTS" },
+    { "from": "QEN",             "to": "DSA",              "type": "IMPLEMENTS" },
+
+    { "from": "TA_HUMAN_OVERSIGHT", "to": "QEN",  "type": "ANCHORS" },
+    { "from": "TA_TRANSPARENCY",    "to": "QEN",  "type": "ANCHORS" },
+    { "from": "TA_FAIRNESS",        "to": "QEN",  "type": "ANCHORS" },
+    { "from": "TA_ACCOUNTABILITY",  "to": "QEN",  "type": "ANCHORS" },
+
+    { "from": "TA_HUMAN_OVERSIGHT", "to": "Art14", "type": "DEFINED_BY" },
+    { "from": "TA_TRANSPARENCY",    "to": "Art13", "type": "DEFINED_BY" },
+    { "from": "TA_FAIRNESS",        "to": "Art10", "type": "DEFINED_BY" },
+    { "from": "TA_ACCOUNTABILITY",  "to": "Art15", "type": "DEFINED_BY" },
+
+    { "from": "C_HUMAN_OVERSIGHT",  "to": "TA_HUMAN_OVERSIGHT", "type": "ENFORCES" },
+    { "from": "C_TRANSPARENCY_LOG", "to": "TA_TRANSPARENCY",    "type": "ENFORCES" },
+    { "from": "C_BIAS_AUDIT",       "to": "TA_FAIRNESS",        "type": "ENFORCES" },
+    { "from": "C_AUDIT_TRAIL",      "to": "TA_ACCOUNTABILITY",  "type": "ENFORCES" },
+
+    { "from": "ALG_COLT",    "to": "DS_FRAGRANCE",      "type": "USES" },
+    { "from": "ALG_COLT",    "to": "DS_OLFACTORY",      "type": "USES" },
+    { "from": "ALG_BOLOGNA", "to": "DS_BOLOGNA_RETAIL", "type": "USES" },
+    { "from": "ALG_BOLOGNA", "to": "DS_SHOP_METRICS",   "type": "USES" },
+    { "from": "ALG_VEGANOO", "to": "DS_VEGANOO_FOOD",   "type": "USES" },
+    { "from": "ALG_VEGANOO", "to": "DS_FOOD_PREFS",     "type": "USES" },
+
+    { "from": "V_SOCIALE",  "to": "VS_INC",           "type": "MEASURES" },
+    { "from": "V_SOCIALE",  "to": "VS_STAB",          "type": "MEASURES" },
+    { "from": "V_SOCIALE",  "to": "VS_FORM",          "type": "MEASURES" },
+    { "from": "V_BIAS",     "to": "BIAS_SCORE",       "type": "MEASURES" },
+    { "from": "V_DATA",     "to": "DATA_TRACEABILITY", "type": "MEASURES" },
+
+    { "from": "PD_SEMANTIC_INTEGRATION", "to": "PD_NEURAL_MAPPING", "type": "FEEDS" },
+    { "from": "PD_SEMANTIC_INTEGRATION", "to": "T_PYTHON",          "type": "PROCESSED_BY" },
+    { "from": "PD_SEMANTIC_INTEGRATION", "to": "T_LLM",             "type": "PROCESSED_BY" },
+    { "from": "PD_SEMANTIC_INTEGRATION", "to": "T_DOCKER",          "type": "PROCESSED_BY" }
+  ]
+}
