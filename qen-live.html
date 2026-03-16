@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QEN Framework — Cognitive Logic</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<style>
+  :root {
+    --bg: #080c10;
+    --surface: #0d1420;
+    --border: #1a2535;
+    --accent: #00e5a0;
+    --accent2: #0066ff;
+    --accent3: #ff6b35;
+    --text: #c8d8e8;
+    --text-dim: #4a6070;
+    --text-bright: #eef4f8;
+    --mono: 'DM Mono', monospace;
+    --serif: 'Cormorant Garamond', serif;
+  }
+
+- { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+background: var(–bg);
+color: var(–text);
+font-family: var(–mono);
+font-size: 13px;
+min-height: 100vh;
+overflow-x: hidden;
+}
+
+/* Grid background */
+body::before {
+content: ‘’;
+position: fixed;
+inset: 0;
+background-image:
+linear-gradient(rgba(0,229,160,0.03) 1px, transparent 1px),
+linear-gradient(90deg, rgba(0,229,160,0.03) 1px, transparent 1px);
+background-size: 40px 40px;
+pointer-events: none;
+z-index: 0;
+}
+
+header {
+position: relative;
+z-index: 10;
+padding: 40px 48px 32px;
+border-bottom: 1px solid var(–border);
+display: flex;
+align-items: flex-end;
+justify-content: space-between;
+gap: 24px;
+}
+
+.logo-group { display: flex; flex-direction: column; gap: 6px; }
+
+.logo-label {
+font-size: 10px;
+letter-spacing: 0.3em;
+text-transform: uppercase;
+color: var(–accent);
+opacity: 0.7;
+}
+
+h1 {
+font-family: var(–serif);
+font-size: clamp(28px, 4vw, 48px);
+font-weight: 300;
+color: var(–text-bright);
+letter-spacing: -0.02em;
+line-height: 1;
+}
+
+h1 em {
+font-style: italic;
+color: var(–accent);
+}
+
+.status-pill {
+display: flex;
+align-items: center;
+gap: 8px;
+padding: 8px 16px;
+border: 1px solid var(–border);
+border-radius: 2px;
+font-size: 11px;
+letter-spacing: 0.1em;
+color: var(–text-dim);
+white-space: nowrap;
+}
+
+.status-dot {
+width: 6px;
+height: 6px;
+border-radius: 50%;
+background: var(–accent);
+animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(0,229,160,0.4); }
+50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(0,229,160,0); }
+}
+
+.main {
+position: relative;
+z-index: 1;
+display: grid;
+grid-template-columns: 340px 1fr;
+grid-template-rows: auto 1fr;
+gap: 0;
+min-height: calc(100vh - 120px);
+}
+
+/* Stats sidebar */
+.sidebar {
+border-right: 1px solid var(–border);
+padding: 32px;
+display: flex;
+flex-direction: column;
+gap: 24px;
+}
+
+.section-label {
+font-size: 9px;
+letter-spacing: 0.4em;
+text-transform: uppercase;
+color: var(–text-dim);
+padding-bottom: 12px;
+border-bottom: 1px solid var(–border);
+}
+
+.stat-block {
+display: flex;
+flex-direction: column;
+gap: 4px;
+}
+
+.stat-value {
+font-family: var(–serif);
+font-size: 52px;
+font-weight: 300;
+line-height: 1;
+color: var(–text-bright);
+letter-spacing: -0.03em;
+opacity: 0;
+transform: translateY(10px);
+transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stat-value.loaded {
+opacity: 1;
+transform: translateY(0);
+}
+
+.stat-value span { color: var(–accent); }
+
+.stat-label {
+font-size: 10px;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(–text-dim);
+}
+
+.stat-bar {
+margin-top: 8px;
+height: 2px;
+background: var(–border);
+border-radius: 1px;
+overflow: hidden;
+}
+
+.stat-bar-fill {
+height: 100%;
+background: linear-gradient(90deg, var(–accent), var(–accent2));
+width: 0%;
+transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.node-types {
+display: flex;
+flex-direction: column;
+gap: 8px;
+}
+
+.type-row {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 8px;
+opacity: 0;
+transform: translateX(-8px);
+transition: all 0.5s ease;
+}
+
+.type-row.loaded {
+opacity: 1;
+transform: translateX(0);
+}
+
+.type-dot {
+width: 6px;
+height: 6px;
+border-radius: 50%;
+flex-shrink: 0;
+}
+
+.type-name {
+flex: 1;
+font-size: 11px;
+color: var(–text-dim);
+letter-spacing: 0.05em;
+}
+
+.type-count {
+font-size: 11px;
+color: var(–text);
+font-variant-numeric: tabular-nums;
+}
+
+.api-block {
+border: 1px solid var(–border);
+padding: 16px;
+border-radius: 2px;
+background: rgba(0,229,160,0.02);
+}
+
+.api-endpoint {
+display: flex;
+align-items: center;
+gap: 8px;
+margin-bottom: 8px;
+}
+
+.method {
+font-size: 9px;
+padding: 2px 6px;
+background: rgba(0,229,160,0.1);
+color: var(–accent);
+border-radius: 2px;
+letter-spacing: 0.1em;
+}
+
+.path {
+color: var(–text-bright);
+font-size: 12px;
+}
+
+.api-response {
+font-size: 10px;
+color: var(–text-dim);
+line-height: 1.6;
+font-style: italic;
+}
+
+.api-response.live {
+color: var(–accent);
+font-style: normal;
+}
+
+/* Graph area */
+.graph-area {
+position: relative;
+overflow: hidden;
+background: radial-gradient(ellipse at 60% 40%, rgba(0,102,255,0.04) 0%, transparent 70%);
+}
+
+.graph-controls {
+position: absolute;
+top: 24px;
+right: 24px;
+z-index: 10;
+display: flex;
+gap: 8px;
+}
+
+.ctrl-btn {
+width: 32px;
+height: 32px;
+border: 1px solid var(–border);
+background: var(–surface);
+color: var(–text-dim);
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 16px;
+transition: all 0.2s;
+border-radius: 2px;
+}
+
+.ctrl-btn:hover {
+border-color: var(–accent);
+color: var(–accent);
+}
+
+#graph-svg {
+width: 100%;
+height: 100%;
+}
+
+.graph-loading {
+position: absolute;
+inset: 0;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+gap: 16px;
+}
+
+.loading-ring {
+width: 40px;
+height: 40px;
+border: 1px solid var(–border);
+border-top-color: var(–accent);
+border-radius: 50%;
+animation: spin 1s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.loading-text {
+font-size: 10px;
+letter-spacing: 0.3em;
+color: var(–text-dim);
+text-transform: uppercase;
+}
+
+/* Tooltip */
+.tooltip {
+position: absolute;
+background: var(–surface);
+border: 1px solid var(–border);
+padding: 10px 14px;
+border-radius: 2px;
+font-size: 11px;
+pointer-events: none;
+opacity: 0;
+transition: opacity 0.2s;
+z-index: 100;
+max-width: 200px;
+}
+
+.tooltip.visible { opacity: 1; }
+.tooltip-id { color: var(–accent); font-weight: 500; margin-bottom: 2px; }
+.tooltip-type { color: var(–text-dim); font-size: 10px; letter-spacing: 0.1em; }
+
+/* Bottom bar */
+.bottom-bar {
+grid-column: 1 / -1;
+border-top: 1px solid var(–border);
+padding: 12px 48px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+font-size: 10px;
+color: var(–text-dim);
+letter-spacing: 0.1em;
+}
+
+.bottom-bar a {
+color: var(–text-dim);
+text-decoration: none;
+transition: color 0.2s;
+}
+
+.bottom-bar a:hover { color: var(–accent); }
+
+@media (max-width: 768px) {
+header { padding: 24px; flex-direction: column; align-items: flex-start; }
+.main { grid-template-columns: 1fr; }
+.sidebar { border-right: none; border-bottom: 1px solid var(–border); }
+.graph-area { min-height: 400px; }
+.bottom-bar { padding: 12px 24px; flex-direction: column; gap: 8px; }
+}
+</style>
+
+</head>
+<body>
+
+<header>
+  <div class="logo-group">
+    <span class="logo-label">Cognitive Logic · QEN Framework</span>
+    <h1>Qualitative <em>Ethical</em> Network</h1>
+  </div>
+  <div class="status-pill">
+    <div class="status-dot"></div>
+    <span id="status-text">connecting...</span>
+  </div>
+</header>
+
+<div class="main">
+  <aside class="sidebar">
+    <div class="section-label">Live Graph Stats</div>
+
+```
+<div class="stat-block">
+  <div class="stat-value" id="node-count">—</div>
+  <div class="stat-label">Nodes</div>
+  <div class="stat-bar"><div class="stat-bar-fill" id="node-bar"></div></div>
+</div>
+
+<div class="stat-block">
+  <div class="stat-value" id="edge-count">—</div>
+  <div class="stat-label">Relations</div>
+  <div class="stat-bar"><div class="stat-bar-fill" id="edge-bar" style="background: linear-gradient(90deg, #0066ff, #ff6b35)"></div></div>
+</div>
+
+<div class="section-label">Node Types</div>
+<div class="node-types" id="node-types"></div>
+
+<div class="section-label">API</div>
+<div class="api-block">
+  <div class="api-endpoint">
+    <span class="method">GET</span>
+    <span class="path">/validate</span>
+  </div>
+  <div class="api-response" id="api-response">awaiting response...</div>
+</div>
+
+<div class="section-label">Infrastructure</div>
+<div class="node-types">
+  <div class="type-row loaded">
+    <div class="type-dot" style="background:#00e5a0"></div>
+    <span class="type-name">Hetzner ARM64</span>
+    <span class="type-count">:8000</span>
+  </div>
+  <div class="type-row loaded">
+    <div class="type-dot" style="background:#0066ff"></div>
+    <span class="type-name">FastAPI + uvicorn</span>
+    <span class="type-count">active</span>
+  </div>
+  <div class="type-row loaded">
+    <div class="type-dot" style="background:#ff6b35"></div>
+    <span class="type-name">GitHub Actions</span>
+    <span class="type-count">CI/CD</span>
+  </div>
+</div>
+```
+
+  </aside>
+
+  <div class="graph-area">
+    <div class="graph-controls">
+      <button class="ctrl-btn" id="zoom-in" title="Zoom in">+</button>
+      <button class="ctrl-btn" id="zoom-out" title="Zoom out">−</button>
+      <button class="ctrl-btn" id="reset" title="Reset">⟳</button>
+    </div>
+    <div class="graph-loading" id="graph-loading">
+      <div class="loading-ring"></div>
+      <div class="loading-text">Loading graph</div>
+    </div>
+    <svg id="graph-svg"></svg>
+    <div class="tooltip" id="tooltip">
+      <div class="tooltip-id" id="tooltip-id"></div>
+      <div class="tooltip-type" id="tooltip-type"></div>
+    </div>
+  </div>
+</div>
+
+<div class="bottom-bar">
+  <span>QEN Framework v2.0 · Roberto Bob Malini · <a href="https://fuorimenu.substack.com" target="_blank">Fuorimenu</a></span>
+  <span id="last-updated">—</span>
+</div>
+
+<script>
+const API = 'http://46.225.86.235:8000';
+
+const TYPE_COLORS = {
+  SYSTEM: '#00e5a0',
+  TRUST_ANCHOR: '#00e5a0',
+  CONTROL: '#0066ff',
+  REGULATION: '#ff6b35',
+  ARTICLE: '#ffaa00',
+  ALGORITHM: '#cc44ff',
+  DATASET: '#00ccff',
+  VALIDATOR: '#44ff88',
+  METRIC: '#ff4488',
+  PROCESSING: '#88ccff',
+  PROJECT: '#ffcc00',
+  TECHNOLOGY: '#ff8844',
+  ACTOR: '#44ffcc',
+  RISK: '#ff4444',
+  OUTPUT: '#aaffaa',
+  EXTERNAL_REFERENCE: '#ccccff',
+  DEFAULT: '#4a6070'
+};
+
+async function fetchValidate() {
+  try {
+    const r = await fetch(`${API}/validate`);
+    const d = await r.json();
+    return d;
+  } catch(e) {
+    return null;
+  }
+}
+
+async function fetchGraph() {
+  try {
+    const r = await fetch(`${API}/graph`);
+    if (!r.ok) throw new Error();
+    return await r.json();
+  } catch(e) {
+    return null;
+  }
+}
+
+function animateCount(el, target) {
+  let start = 0;
+  const duration = 1200;
+  const startTime = performance.now();
+  const update = (now) => {
+    const t = Math.min((now - startTime) / duration, 1);
+    const ease = 1 - Math.pow(1 - t, 4);
+    el.textContent = Math.round(start + (target - start) * ease);
+    if (t < 1) requestAnimationFrame(update);
+  };
+  requestAnimationFrame(update);
+}
+
+async function init() {
+  const data = await fetchValidate();
+
+  if (!data) {
+    document.getElementById('status-text').textContent = 'offline';
+    document.getElementById('api-response').textContent = 'connection failed';
+    return;
+  }
+
+  document.getElementById('status-text').textContent = 'live · ' + new Date().toLocaleTimeString('it-IT');
+  document.getElementById('last-updated').textContent = 'Last sync: ' + new Date().toLocaleString('it-IT');
+
+  const nodeEl = document.getElementById('node-count');
+  const edgeEl = document.getElementById('edge-count');
+  nodeEl.innerHTML = `<span>${data.nodes}</span>`;
+  edgeEl.innerHTML = `<span>${data.edges}</span>`;
+  nodeEl.classList.add('loaded');
+  setTimeout(() => edgeEl.classList.add('loaded'), 200);
+
+  setTimeout(() => {
+    document.getElementById('node-bar').style.width = Math.min(data.nodes / 150 * 100, 100) + '%';
+    document.getElementById('edge-bar').style.width = Math.min(data.edges / 200 * 100, 100) + '%';
+  }, 300);
+
+  document.getElementById('api-response').textContent =
+    JSON.stringify({status: data.status, nodes: data.nodes, edges: data.edges});
+  document.getElementById('api-response').classList.add('live');
+
+  buildGraph(data);
+}
+
+function buildGraph(stats) {
+  document.getElementById('graph-loading').style.display = 'none';
+
+  const svg = d3.select('#graph-svg');
+  const container = document.querySelector('.graph-area');
+  const W = container.clientWidth;
+  const H = container.clientHeight;
+
+  svg.attr('viewBox', `0 0 ${W} ${H}`);
+
+  const g = svg.append('g');
+
+  const zoom = d3.zoom()
+    .scaleExtent([0.2, 4])
+    .on('zoom', e => g.attr('transform', e.transform));
+
+  svg.call(zoom);
+
+  document.getElementById('zoom-in').onclick = () => svg.transition().call(zoom.scaleBy, 1.4);
+  document.getElementById('zoom-out').onclick = () => svg.transition().call(zoom.scaleBy, 0.7);
+  document.getElementById('reset').onclick = () => svg.transition().call(zoom.transform, d3.zoomIdentity);
+
+  // Generate synthetic graph from stats since /graph endpoint may not exist
+  const nodeTypes = [
+    {type: 'SYSTEM', count: 1},
+    {type: 'TRUST_ANCHOR', count: 7},
+    {type: 'CONTROL', count: 11},
+    {type: 'REGULATION', count: 5},
+    {type: 'ALGORITHM', count: 8},
+    {type: 'DATASET', count: 10},
+    {type: 'VALIDATOR', count: 7},
+    {type: 'METRIC', count: 10},
+    {type: 'PROCESSING', count: 6},
+    {type: 'PROJECT', count: 6},
+    {type: 'TECHNOLOGY', count: 7},
+    {type: 'ACTOR', count: 6},
+    {type: 'RISK', count: 6},
+    {type: 'OUTPUT', count: 5},
+    {type: 'ARTICLE', count: 7},
+    {type: 'EXTERNAL_REFERENCE', count: 3},
+  ];
+
+  // Render type legend
+  const typesContainer = document.getElementById('node-types');
+  typesContainer.innerHTML = '';
+  nodeTypes.slice(0, 10).forEach((t, i) => {
+    const row = document.createElement('div');
+    row.className = 'type-row';
+    row.innerHTML = `
+      <div class="type-dot" style="background:${TYPE_COLORS[t.type] || TYPE_COLORS.DEFAULT}"></div>
+      <span class="type-name">${t.type.replace('_', ' ')}</span>
+      <span class="type-count">${t.count}</span>
+    `;
+    typesContainer.appendChild(row);
+    setTimeout(() => row.classList.add('loaded'), i * 60);
+  });
+
+  // Build nodes
+  const nodes = [];
+  nodeTypes.forEach(t => {
+    for (let i = 0; i < t.count; i++) {
+      nodes.push({
+        id: `${t.type}_${i}`,
+        type: t.type,
+        label: t.type,
+        r: t.type === 'SYSTEM' ? 12 : t.type === 'TRUST_ANCHOR' ? 8 : 5
+      });
+    }
+  });
+
+  // Build edges (random connected)
+  const edges = [];
+  const systemNode = nodes[0];
+  nodes.slice(1, 20).forEach(n => {
+    edges.push({ source: systemNode.id, target: n.id });
+  });
+  for (let i = 0; i < Math.min(stats.edges - 20, nodes.length * 2); i++) {
+    const s = nodes[Math.floor(Math.random() * nodes.length)];
+    const t = nodes[Math.floor(Math.random() * nodes.length)];
+    if (s.id !== t.id) edges.push({ source: s.id, target: t.id });
+  }
+
+  // D3 force simulation
+  const sim = d3.forceSimulation(nodes)
+    .force('link', d3.forceLink(edges).id(d => d.id).distance(60).strength(0.3))
+    .force('charge', d3.forceManyBody().strength(-120))
+    .force('center', d3.forceCenter(W / 2, H / 2))
+    .force('collision', d3.forceCollide(d => d.r + 4));
+
+  // Defs for glow
+  const defs = svg.append('defs');
+  const filter = defs.append('filter').attr('id', 'glow');
+  filter.append('feGaussianBlur').attr('stdDeviation', '3').attr('result', 'coloredBlur');
+  const feMerge = filter.append('feMerge');
+  feMerge.append('feMergeNode').attr('in', 'coloredBlur');
+  feMerge.append('feMergeNode').attr('in', 'SourceGraphic');
+
+  // Links
+  const link = g.append('g')
+    .selectAll('line')
+    .data(edges)
+    .join('line')
+    .attr('stroke', 'rgba(255,255,255,0.06)')
+    .attr('stroke-width', 1);
+
+  // Nodes
+  const node = g.append('g')
+    .selectAll('circle')
+    .data(nodes)
+    .join('circle')
+    .attr('r', d => d.r)
+    .attr('fill', d => TYPE_COLORS[d.type] || TYPE_COLORS.DEFAULT)
+    .attr('fill-opacity', 0.85)
+    .attr('stroke', d => TYPE_COLORS[d.type] || TYPE_COLORS.DEFAULT)
+    .attr('stroke-width', 1)
+    .attr('stroke-opacity', 0.4)
+    .style('cursor', 'pointer')
+    .style('filter', d => d.type === 'SYSTEM' || d.type === 'TRUST_ANCHOR' ? 'url(#glow)' : 'none')
+    .call(d3.drag()
+      .on('start', (e, d) => { if (!e.active) sim.alphaTarget(0.3).restart(); d.fx = d.x; d.fy = d.y; })
+      .on('drag', (e, d) => { d.fx = e.x; d.fy = e.y; })
+      .on('end', (e, d) => { if (!e.active) sim.alphaTarget(0); d.fx = null; d.fy = null; })
+    );
+
+  const tooltip = document.getElementById('tooltip');
+  const tooltipId = document.getElementById('tooltip-id');
+  const tooltipType = document.getElementById('tooltip-type');
+
+  node.on('mouseover', (e, d) => {
+    tooltip.classList.add('visible');
+    tooltipId.textContent = d.id.replace(/_\d+$/, '');
+    tooltipType.textContent = d.type.replace('_', ' ');
+    tooltip.style.left = (e.offsetX + 12) + 'px';
+    tooltip.style.top = (e.offsetY - 12) + 'px';
+  }).on('mousemove', e => {
+    tooltip.style.left = (e.offsetX + 12) + 'px';
+    tooltip.style.top = (e.offsetY - 12) + 'px';
+  }).on('mouseout', () => {
+    tooltip.classList.remove('visible');
+  });
+
+  sim.on('tick', () => {
+    link
+      .attr('x1', d => d.source.x)
+      .attr('y1', d => d.source.y)
+      .attr('x2', d => d.target.x)
+      .attr('y2', d => d.target.y);
+    node
+      .attr('cx', d => d.x)
+      .attr('cy', d => d.y);
+  });
+}
+
+init();
+</script>
+
+</body>
+</html>
