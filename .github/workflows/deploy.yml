@@ -12,13 +12,13 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Copy qen_graph.json to server
+      - name: Copy qen_graph_v2.json to server
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.HETZNER_HOST }}
           username: root
           key: ${{ secrets.HETZNER_SSH_KEY }}
-          source: "qen_graph.json"
+          source: "qen_graph_v2.json"
           target: "/root/"
 
       - name: Restart FastAPI service
