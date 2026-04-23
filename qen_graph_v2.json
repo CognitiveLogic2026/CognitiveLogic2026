@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "name": "QEN - Quantum Ethics Network",
+    "version": "2.0",
+    "author": "Roberto Bob Malini | Cognitive Logic",
+    "created": "2026-04-23",
+    "description": "Pure Data Graph — CNA Bologna 16.000 imprese + Hotellerie Riviera Romagnola",
+    "formula": "QEN Score = Vs*0.40 + Va*0.35 + Vt*0.25"
+  },
+  "nodes": {
+    "CNA_BOLOGNA": {
+      "id": "CNA_BOLOGNA",
+      "type": "Territorio",
+      "label": "CNA Bologna — Artigianato e PMI",
+      "imprese_associate": 16000,
+      "clienti_totali": 30000,
+      "staff": 400,
+      "fondazione_anni": 80,
+      "sede": "Viale Aldo Moro 22, 40127 Bologna",
+      "presidente": "Antonio Gramuglia",
+      "qen_score": {
+        "sociale": 8.4,
+        "ambientale": 5.4,
+        "territoriale": 7.6,
+        "totale": 7.15
+      },
+      "ateco_prevalenti": [
+        "43-Costruzioni",
+        "41-Edifici",
+        "10-Alimentari",
+        "56-Ristorazione",
+        "45-Veicoli",
+        "96-Servizi",
+        "25-Metallo",
+        "33-Riparazione",
+        "62-IT",
+        "74-Professioni"
+      ],
+      "compliance_gap": {
+        "eu_ai_act": "0% PMI associate con classificazione Allegati I-III",
+        "esg_reporting": "Nessuna rendicontazione non finanziaria strutturata",
+        "csrd": "Non applicabile PMI sotto 250 dip — ma filiere esposte",
+        "gdpr": "Parziale — CAF e Patronato gestiscono dati sensibili"
+      },
+      "opportunita_qen": {
+        "scoring_ateco": "QEN Score per singola impresa — 50+ categorie",
+        "dashboard_esg": "Prima dashboard ESG computabile per associazione artigianale Italia",
+        "white_label": "Tool EU AI Act/GDPR brandizzato CNA per associati",
+        "bologna100botteghe": "100 botteghe artigiane come Pure Data Nodes",
+        "bando_prospettive_plus": "Scadenza maggio 2026"
+      },
+      "ambientale_gap": {
+        "economia_circolare": "Solo evento singolo Circularity Platform",
+        "transizione_energetica": "Bonus energia gestiti, nessun programma green autonomo",
+        "formazione_green": "Non sistematizzata",
+        "azioni": [
+          "Framework ESG formale",
+          "Dashboard pubblica impatto",
+          "ISO 14001 per PMI"
+        ]
+      },
+      "istituzionale": {
+        "cciaa": "Membro Commissioni",
+        "bolognafiere": "Investimento 500.000 EUR",
+        "mecspec": "Accordi internazionalizzazione EU",
+        "tecnopolo_bologna": "Ecosistema innovazione"
+      },
+      "etl_pipeline": {
+        "fonte": "TelemacoPay CCIAA Bologna",
+        "costo_annuo": 800,
+        "modulo": "etl/cciaa_bo.py",
+        "dati": [
+          "ATECO",
+          "CAP",
+          "fascia_dip",
+          "anzianita",
+          "DURC"
+        ],
+        "privacy": "Solo aggregati anonimizzati"
+      }
+    },
+    "HOTELLERIE_RIVIERA": {
+      "id": "HOTELLERIE_RIVIERA",
+      "type": "Territorio",
+      "label": "Hotellerie Riviera Adriatica Romagnola",
+      "strutture_mappate": 507,
+      "province": [
+        "Rimini",
+        "Forli-Cesena",
+        "Ravenna"
+      ],
+      "compliance_obbligatoria": {
+        "cin": "Codice Identificativo Nazionale — obbligatorio 2024",
+        "cir": "Codice Identificativo Regionale ER",
+        "alloggiati_web_ps": "Comunicazione PS entro 24h",
+        "gdpr_art22_35": "PMS automatizzati = alto rischio",
+        "eu_ai_act_III": "PMS con profilazione = Allegato III"
+      },
+      "pms_stack": {
+        "zucchetti": {
+          "prodotto": "@Persona / Scrigno",
+          "gap": "Non espone identita verificabile per LLM",
+          "flusso": "Check-in → @Persona → Identita → AlloggiatiWeb",
+          "stato": "GAP RISOLTO — mappato"
+        },
+        "opera_fidelio": {
+          "prodotto": "Oracle Opera / Fidelio",
+          "utilizzo": "Maximilian Hotels",
+          "note": "API documentate"
+        }
+      },
+      "gruppi": {
+        "atlantic": {
+          "strutture": 6,
+          "cin": "IT099013A1HWSX9UDQ",
+          "stato": "MAPPATO 20 nodi 26 edge"
+        },
+        "maximilians": {
+          "strutture": 5,
+          "pms": "Opera/Fidelio",
+          "fondazione": 1955,
+          "stato": "PRIORITA 1"
+        },
+        "dv_hotels": {
+          "strutture": 6,
+          "focus": "Wellness/design",
+          "va_atteso": "ALTO",
+          "stato": "PRIORITA 1"
+        },
+        "devira": {
+          "strutture": 6,
+          "area": "Miramare-Rimini",
+          "stato": "DA MAPPARE"
+        },
+        "costa_hotels": {
+          "strutture": 30,
+          "tipo": "Consorzio 2-4 stelle",
+          "stato": "DA MAPPARE"
+        },
+        "club_del_sole": {
+          "strutture": 10,
+          "tipo": "Outdoor/Glamping",
+          "va_atteso": "ALTO",
+          "stato": "DA MAPPARE"
+        }
+      },
+      "nodi_granulari": {
+        "struttura_ricettiva": "Nome, CIN/CIR, stelle, PMS, QEN Score",
+        "persona_zucchetti": "Check-in → verifica → AlloggiatiWeb",
+        "cin_registry": "Codice, struttura, geo, stato",
+        "qen_score_hotel": "Vs/Va/Vt per struttura individuale",
+        "pms_adapter": "Adapter PMS → Pure Data Node",
+        "stagionalita": "Alta/bassa stagione, tasso occupazione",
+        "sostenibilita_hotel": "Certificazioni green, consumi, km0"
+      },
+      "etl_pipeline": {
+        "fonte_primaria": "open.er.it — no API key",
+        "fonte_secondaria": "CCIAA Romagna TelemacoPay",
+        "modulo": "etl/regione_er.py",
+        "deadline": "Giugno 2026",
+        "output": "507 strutture CIN verificato + QEN Score"
+      }
+    },
+    "QEN_COMPLIANCE_ENGINE": {
+      "id": "QEN_COMPLIANCE_ENGINE",
+      "type": "Framework",
+      "versione": "Diamante 26.0/36.0",
+      "formula": "Vs*0.40 + Va*0.35 + Vt*0.25",
+      "eu_ai_act": {
+        "I": "Pratiche vietate — manipolazione, social scoring, biometrica",
+        "II": "Alto rischio — infrastrutture, istruzione, lavoro, credito",
+        "III": "Alto rischio specifico — biometria, HR, PMS profilante",
+        "hospitality": "PMS con profilazione ospiti = potenziale Allegato III",
+        "pmi": "Algoritmi HR, scoring creditizio, chatbot decisionale"
+      },
+      "gdpr": {
+        "art22": "Decisioni automatizzate — diritto spiegazione umana",
+        "art35": "DPIA obbligatoria alto rischio",
+        "hotel": "PMS + AlloggiatiWeb + profilazione ospiti",
+        "pmi": "Software HR, CRM scoring, sorveglianza"
+      },
+      "scoring": {
+        "sociale": {
+          "peso": 0.4,
+          "indicatori": [
+            "inclusione",
+            "contratti",
+            "formazione",
+            "welfare",
+            "genere"
+          ]
+        },
+        "ambientale": {
+          "peso": 0.35,
+          "indicatori": [
+            "cert_green",
+            "consumi",
+            "km0",
+            "rifiuti",
+            "carbonio"
+          ]
+        },
+        "territoriale": {
+          "peso": 0.25,
+          "indicatori": [
+            "radicamento",
+            "filiera",
+            "indotto",
+            "ecosistema",
+            "digitale"
+          ]
+        }
+      },
+      "prodotti": {
+        "copilot": {
+          "url": "api.cognitivelogic.it/copilot",
+          "engine": "Claude Sonnet 4",
+          "endpoint": "POST /copilot-analyze"
+        },
+        "pricing": {
+          "free": "Score pubblico",
+          "base": "49/mese",
+          "pro": "149/mese",
+          "white_label": "490/mese",
+          "enterprise": "Su preventivo"
+        },
+        "dashboard_b2g": {
+          "target": [
+            "CCIAA Bologna",
+            "Regione ER",
+            "CNA Bologna",
+            "GAL"
+          ],
+          "output": "Heatmap CAP + filtri ATECO + export PDF"
+        }
+      }
+    },
+    "COGNITIVE_LOGIC": {
+      "id": "COGNITIVE_LOGIC",
+      "type": "Progetto",
+      "fondatore": "Roberto Bob Malini",
+      "filosofia": "Beyond the graphical interface: data must be intelligible, transparent, and immediately operational for autonomous agents.",
+      "contatti": {
+        "email": "info@cognitivelogic.it",
+        "sito": "cognitivelogic.it",
+        "linkedin": "linkedin.com/in/robertobobmalini"
+      },
+      "infrastruttura": {
+        "vps": "Hetzner CAX11 ARM64 — Ubuntu 24.04",
+        "backend": "FastAPI port 8000 — systemd cognitivelogic.service",
+        "gemini": "STAGING — port conflict 8000→8001 da risolvere"
+      },
+      "stato": {
+        "copilot": "LIVE api.cognitivelogic.it/copilot",
+        "graph": "LIVE 507 nodi / 209 relazioni",
+        "piva": "IN CORSO ATECO 62.01.09 forfettario",
+        "bando_er": "ATTIVO Sfinge 2020 scadenza 15/05/2026",
+        "naspi": "PENDING entro 30gg da apertura P.IVA",
+        "etl_regione_er": "TODO Giugno 2026"
+      },
+      "roadmap": {
+        "Q2_2026": [
+          "P.IVA + NASpI",
+          "Bando ER 15/05",
+          "QEN Badge freemium",
+          "10 strutture pilota"
+        ],
+        "Q3_2026": [
+          "ETL open.er.it",
+          "Accordo CNA",
+          "Gemini 8001",
+          "5 clienti Pro"
+        ],
+        "Q4_2026": [
+          "White label consorzio",
+          "Dashboard B2G",
+          "Bologna100Botteghe"
+        ],
+        "Q1_2027": [
+          "ETL TelemacoPay",
+          "Enterprise CCIAA",
+          "2000+ nodi"
+        ]
+      },
+      "ricavi": {
+        "anno_1": 22200,
+        "anno_2": 50916,
+        "valuta": "EUR"
+      }
+    }
+  },
+  "edges": [
+    {
+      "from": "COGNITIVE_LOGIC",
+      "to": "QEN_COMPLIANCE_ENGINE",
+      "type": "OPERA_CON"
+    },
+    {
+      "from": "COGNITIVE_LOGIC",
+      "to": "CNA_BOLOGNA",
+      "type": "PARTNERSHIP_PROPOSTA"
+    },
+    {
+      "from": "COGNITIVE_LOGIC",
+      "to": "HOTELLERIE_RIVIERA",
+      "type": "MAPPATURA_IN_CORSO"
+    },
+    {
+      "from": "QEN_COMPLIANCE_ENGINE",
+      "to": "CNA_BOLOGNA",
+      "type": "SCORING_APPLICATO"
+    },
+    {
+      "from": "QEN_COMPLIANCE_ENGINE",
+      "to": "HOTELLERIE_RIVIERA",
+      "type": "SCORING_APPLICATO"
+    },
+    {
+      "from": "CNA_BOLOGNA",
+      "to": "HOTELLERIE_RIVIERA",
+      "type": "FILIERA_TERRITORIALE"
+    }
+  ]
+}
