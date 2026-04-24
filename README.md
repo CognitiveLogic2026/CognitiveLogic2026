@@ -1,6 +1,7 @@
 # Roberto Bob Malini
 ### AI Data Architect & Founder of [Cognitive Logic](https://cognitivelogic.it)
 
+
 > *"Beyond the graphical interface: data must be intelligible, transparent, and immediately operational for autonomous agents."*
 
 ---
