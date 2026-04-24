@@ -21,7 +21,7 @@ jobs:
 
       - name: Copy qen_graph_v2.json to server
         run: |
-          rsync -avz -e "ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no" qen_graph_v2.json root@${{ secrets.HETZNER_HOST }}:/root/qen_graph_v2.json
+          rsync -avz -e "ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no" qen_graph_v2.json root@${{ secrets.HETZNER_HOST }}:/root/
 
       - name: Restart FastAPI service
         run: |
