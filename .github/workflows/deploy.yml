@@ -19,16 +19,9 @@ jobs:
           chmod 600 ~/.ssh/deploy_key
           ssh-keyscan -H ${{ secrets.HETZNER_HOST }} >> ~/.ssh/known_hosts
 
-      - name: Test SSH connection
-        run: |
-          ssh -T -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no root@${{ secrets.HETZNER_HOST }} /bin/bash << 'EOF'
-          echo CONNESSIONE_OK
-          whoami
-          EOF
-
       - name: Copy qen_graph_v2.json to server
         run: |
-          scp -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no qen_graph_v2.json root@${{ secrets.HETZNER_HOST }}:/root/qen_graph_v2.json
+          rsync -avz -e "ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no" qen_graph_v2.json root@${{ secrets.HETZNER_HOST }}:/root/qen_graph_v2.json
 
       - name: Restart FastAPI service
         run: |
