@@ -1,0 +1,473 @@
+{
+  "meta": {
+    "name": "QEN - Quantum Ethics Network",
+    "version": "4.0",
+    "author": "Roberto Bob Malini | Cognitive Logic",
+    "created": "2026-04-25",
+    "description": "Pure Data Graph — 21 nodi | Cognitive Logic Observatory",
+    "formula": "QEN Score = Vs*0.40 + Va*0.35 + Vt*0.25",
+    "nodi": 21,
+    "relazioni": 34
+  },
+  "nodes": {
+    "COGNITIVE_LOGIC": {
+      "id": "COGNITIVE_LOGIC",
+      "type": "Progetto",
+      "label": "Cognitive Logic",
+      "fondatore": "Roberto Bob Malini",
+      "filosofia": "Beyond the graphical interface: data must be intelligible, transparent, and immediately operational for autonomous agents.",
+      "did": "did:web:cognitivelogic.it:robertomalini",
+      "contatti": {
+        "email": "info@cognitivelogic.it",
+        "sito": "cognitivelogic.it",
+        "api": "api.cognitivelogic.it",
+        "linkedin": "linkedin.com/in/robertobobmalini"
+      },
+      "infrastruttura": {
+        "vps": "Hetzner CAX21 ARM64 — Ubuntu 24.04",
+        "backend": "Flask port 5000 — systemd cognitivelogic.service",
+        "reverse_proxy": "Nginx + Let's Encrypt",
+        "deploy": "GitHub Actions — CognitiveLogic2026/CognitiveLogic2026"
+      },
+      "stato": {
+        "copilot": "LIVE api.cognitivelogic.it/copilot",
+        "graph": "LIVE 21 nodi / 34 relazioni — v4",
+        "piva": "IN CORSO ATECO 62.01.09 forfettario",
+        "bando_er": "ATTIVO Sfinge 2020 scadenza 15/05/2026"
+      },
+      "roadmap": {
+        "Q2_2026": ["P.IVA + NASpI", "Bando ER 15/05", "QEN Badge freemium", "10 strutture pilota"],
+        "Q3_2026": ["ETL open.er.it", "Accordo CNA", "5 clienti Pro"],
+        "Q4_2026": ["White label consorzio", "Dashboard B2G", "Bologna100Botteghe"],
+        "Q1_2027": ["ETL TelemacoPay", "Enterprise CCIAA", "2000+ nodi"]
+      },
+      "qen_score": {
+        "vs": 80,
+        "va": 70,
+        "vt": 90,
+        "totale": 79.5
+      }
+    },
+    "QEN_COMPLIANCE_ENGINE": {
+      "id": "QEN_COMPLIANCE_ENGINE",
+      "type": "Framework",
+      "label": "QEN Compliance Engine",
+      "versione": "Diamante 26.0",
+      "formula": "Vs*0.40 + Va*0.35 + Vt*0.25",
+      "stato": "LIVE",
+      "qen_score": {
+        "vs": 90,
+        "va": 85,
+        "vt": 95,
+        "totale": 89.75
+      }
+    },
+    "COLT_IN_FRAGRANZA": {
+      "id": "COLT_IN_FRAGRANZA",
+      "type": "Algoritmo",
+      "label": "Colt in Fragranza",
+      "descrizione": "Algoritmo di scoring etico per la ristorazione indipendente italiana.",
+      "settore": "Ristorazione",
+      "stato": "ATTIVO",
+      "qen_score": {
+        "vs": 85,
+        "va": 80,
+        "vt": 85,
+        "totale": 83.25
+      }
+    },
+    "BOLOGNA_100_BOTTEGHE": {
+      "id": "BOLOGNA_100_BOTTEGHE",
+      "type": "Algoritmo",
+      "label": "Bologna 100 Botteghe",
+      "descrizione": "Mappatura e scoring QEN di 100 botteghe artigiane bolognesi.",
+      "settore": "Artigianato urbano",
+      "stato": "Q4_2026",
+      "qen_score": {
+        "vs": 80,
+        "va": 65,
+        "vt": 95,
+        "totale": 79.75
+      }
+    },
+    "VEGANOO": {
+      "id": "VEGANOO",
+      "type": "Algoritmo",
+      "label": "Veganoo",
+      "descrizione": "Algoritmo di verifica e scoring per offerta plant-based nella ristorazione.",
+      "settore": "Ristorazione plant-based",
+      "stato": "ATTIVO",
+      "qen_score": {
+        "vs": 75,
+        "va": 90,
+        "vt": 70,
+        "totale": 79.0
+      }
+    },
+    "CNA_BOLOGNA": {
+      "id": "CNA_BOLOGNA",
+      "type": "Territorio",
+      "label": "CNA Bologna — Artigianato e PMI",
+      "imprese_associate": 16000,
+      "sede": "Viale Aldo Moro 22, 40127 Bologna",
+      "stato": "PARTNERSHIP_PROPOSTA",
+      "qen_score": {
+        "vs": 84,
+        "va": 54,
+        "vt": 76,
+        "totale": 71.5
+      }
+    },
+    "HOTELLERIE_RIVIERA": {
+      "id": "HOTELLERIE_RIVIERA",
+      "type": "Territorio",
+      "label": "Hotellerie Riviera Adriatica Romagnola",
+      "strutture_mappate": 507,
+      "province": ["Rimini", "Forli-Cesena", "Ravenna"],
+      "stato": "MAPPATURA_IN_CORSO",
+      "qen_score": {
+        "vs": 65,
+        "va": 50,
+        "vt": 70,
+        "totale": 60.75
+      }
+    },
+    "FUORIMENU": {
+      "id": "FUORIMENU",
+      "type": "Osservatorio",
+      "label": "Fuorimenu — Osservatorio Editoriale",
+      "canale": {
+        "piattaforma": "Substack",
+        "url": "fuorimenu.substack.com"
+      },
+      "autore": "Roberto Bob Malini",
+      "stato": "ATTIVO",
+      "qen_score": {
+        "vs": 90,
+        "va": 75,
+        "vt": 85,
+        "totale": 83.75
+      }
+    },
+
+    "ATLANTIC_HOTELS": {
+      "id": "ATLANTIC_HOTELS",
+      "type": "GruppoAlberghiero",
+      "label": "Atlantic Hotels",
+      "strutture": 6,
+      "area": "Riviera Romagnola",
+      "cin_cir": "MAPPATO",
+      "compliance": {
+        "cin": true,
+        "cir": true,
+        "alloggiati_web": true,
+        "eu_ai_act_III": "DA_VERIFICARE",
+        "gdpr_art22_35": "DA_VERIFICARE"
+      },
+      "stato": "MAPPATO",
+      "qen_score": {
+        "vs": 70,
+        "va": 55,
+        "vt": 72,
+        "totale": 64.45
+      }
+    },
+    "MAXIMILIANS": {
+      "id": "MAXIMILIANS",
+      "type": "GruppoAlberghiero",
+      "label": "Maximilian's Hotels",
+      "strutture": 5,
+      "area": "Riviera Romagnola",
+      "cin_cir": "PRIORITA_1",
+      "compliance": {
+        "cin": false,
+        "cir": false,
+        "alloggiati_web": true,
+        "eu_ai_act_III": "DA_VERIFICARE",
+        "gdpr_art22_35": "DA_VERIFICARE"
+      },
+      "stato": "PRIORITA_1",
+      "qen_score": {
+        "vs": 68,
+        "va": 52,
+        "vt": 70,
+        "totale": 62.2
+      }
+    },
+    "DV_HOTELS": {
+      "id": "DV_HOTELS",
+      "type": "GruppoAlberghiero",
+      "label": "DV Hotels",
+      "strutture": 6,
+      "area": "Riviera Romagnola",
+      "cin_cir": "PRIORITA_1",
+      "compliance": {
+        "cin": false,
+        "cir": false,
+        "alloggiati_web": true,
+        "eu_ai_act_III": "DA_VERIFICARE",
+        "gdpr_art22_35": "DA_VERIFICARE"
+      },
+      "stato": "PRIORITA_1",
+      "qen_score": {
+        "vs": 67,
+        "va": 50,
+        "vt": 71,
+        "totale": 61.85
+      }
+    },
+    "DEVIRA": {
+      "id": "DEVIRA",
+      "type": "GruppoAlberghiero",
+      "label": "Devira Hotels",
+      "strutture": 6,
+      "area": "Riviera Romagnola",
+      "cin_cir": "DA_MAPPARE",
+      "compliance": {
+        "cin": false,
+        "cir": false,
+        "alloggiati_web": "DA_VERIFICARE",
+        "eu_ai_act_III": "DA_VERIFICARE",
+        "gdpr_art22_35": "DA_VERIFICARE"
+      },
+      "stato": "DA_MAPPARE",
+      "qen_score": {
+        "vs": 65,
+        "va": 50,
+        "vt": 68,
+        "totale": 60.3
+      }
+    },
+    "COSTA_HOTELS": {
+      "id": "COSTA_HOTELS",
+      "type": "GruppoAlberghiero",
+      "label": "Costa Hotels",
+      "strutture": 30,
+      "area": "Riviera Romagnola",
+      "cin_cir": "DA_MAPPARE",
+      "compliance": {
+        "cin": false,
+        "cir": false,
+        "alloggiati_web": "DA_VERIFICARE",
+        "eu_ai_act_III": "DA_VERIFICARE",
+        "gdpr_art22_35": "DA_VERIFICARE"
+      },
+      "stato": "DA_MAPPARE",
+      "qen_score": {
+        "vs": 64,
+        "va": 48,
+        "vt": 70,
+        "totale": 59.8
+      }
+    },
+
+    "REG_EU_AI_ACT_I": {
+      "id": "REG_EU_AI_ACT_I",
+      "type": "Regolamento",
+      "label": "EU AI Act — Allegato I (Pratiche Vietate)",
+      "fonte": "Regolamento UE 2024/1689",
+      "vigenza": "2025-08-02",
+      "scope": "Pratiche AI vietate",
+      "esempi": [
+        "Manipolazione subliminale",
+        "Sfruttamento vulnerabilità",
+        "Social scoring governativo",
+        "Identificazione biometrica real-time spazi pubblici"
+      ],
+      "conseguenze": "Divieto assoluto — sanzione fino al 7% fatturato globale",
+      "qen_impatto": "BLOCCO — nodo azienda non riceve QEN Score se rientra in Allegato I"
+    },
+    "REG_EU_AI_ACT_II": {
+      "id": "REG_EU_AI_ACT_II",
+      "type": "Regolamento",
+      "label": "EU AI Act — Allegato II (Alto Rischio)",
+      "fonte": "Regolamento UE 2024/1689",
+      "vigenza": "2025-08-02",
+      "scope": "Sistemi AI ad alto rischio",
+      "esempi": [
+        "Infrastrutture critiche",
+        "Istruzione e formazione",
+        "Occupazione e gestione HR",
+        "Servizi pubblici essenziali",
+        "Applicazione della legge",
+        "Migrazione e asilo",
+        "Amministrazione della giustizia"
+      ],
+      "obblighi": ["Registrazione EU database", "DPIA obbligatoria", "Supervisione umana", "Documentazione tecnica"],
+      "sanzione": "Fino al 3% fatturato globale"
+    },
+    "REG_EU_AI_ACT_III": {
+      "id": "REG_EU_AI_ACT_III",
+      "type": "Regolamento",
+      "label": "EU AI Act — Allegato III (Rischio Limitato)",
+      "fonte": "Regolamento UE 2024/1689",
+      "vigenza": "2025-08-02",
+      "scope": "Sistemi AI a rischio limitato — obblighi trasparenza",
+      "esempi": [
+        "Chatbot",
+        "Sistemi di raccomandazione",
+        "PMS con profilazione ospiti (HoReCa)",
+        "Deepfake",
+        "AI generativa"
+      ],
+      "obblighi": ["Obbligo informativo verso utenti", "Dichiarazione AI-generated content"],
+      "nota_horeca": "PMS con profilazione ospiti rientra in Allegato III — rilevante per tutti i gruppi Riviera"
+    },
+    "REG_GDPR_ART22": {
+      "id": "REG_GDPR_ART22",
+      "type": "Regolamento",
+      "label": "GDPR — Art. 22 (Decisioni Automatizzate)",
+      "fonte": "Regolamento UE 2016/679",
+      "vigenza": "2018-05-25",
+      "scope": "Diritto di non essere sottoposto a decisioni automatizzate",
+      "obblighi": [
+        "Informare l'interessato",
+        "Garantire intervento umano su richiesta",
+        "Diritto di contestazione",
+        "Spiegazione della logica decisionale"
+      ],
+      "rilevanza_qen": "Ogni algoritmo di scoring QEN che produce decisioni su persone fisiche è soggetto ad art.22"
+    },
+    "REG_GDPR_ART35": {
+      "id": "REG_GDPR_ART35",
+      "type": "Regolamento",
+      "label": "GDPR — Art. 35 (DPIA)",
+      "fonte": "Regolamento UE 2016/679",
+      "vigenza": "2018-05-25",
+      "scope": "Valutazione d'impatto sulla protezione dei dati",
+      "trigger": [
+        "Trattamento sistematico e su larga scala",
+        "Profilazione di persone fisiche",
+        "Dati sensibili su larga scala",
+        "Monitoraggio sistematico area pubblica"
+      ],
+      "output": "DPIA report strutturato — obbligatorio prima del trattamento",
+      "rilevanza_qen": "ETL CCIAA + scoring batch su 16.000 imprese richiede DPIA preventiva"
+    },
+
+    "KPI_SOCIALE": {
+      "id": "KPI_SOCIALE",
+      "type": "KPI",
+      "label": "KPI Dimensione Sociale (Vs)",
+      "peso_formula": 0.40,
+      "scala": "0–100",
+      "indicatori": {
+        "inclusione": {
+          "descrizione": "Rappresentanza genere, disabilità, nazionalità nella forza lavoro",
+          "peso": 0.25
+        },
+        "contratti": {
+          "descrizione": "Percentuale contratti a tempo indeterminato sul totale",
+          "peso": 0.25
+        },
+        "formazione": {
+          "descrizione": "Ore formazione annua pro capite",
+          "peso": 0.20
+        },
+        "welfare": {
+          "descrizione": "Presenza benefit aziendali oltre minimi contrattuali",
+          "peso": 0.20
+        },
+        "accessibilita": {
+          "descrizione": "Accessibilità prodotti/servizi per fasce deboli",
+          "peso": 0.10
+        }
+      }
+    },
+    "KPI_AMBIENTALE": {
+      "id": "KPI_AMBIENTALE",
+      "type": "KPI",
+      "label": "KPI Dimensione Ambientale (Va)",
+      "peso_formula": 0.35,
+      "scala": "0–100",
+      "indicatori": {
+        "cert_green": {
+          "descrizione": "Certificazioni ambientali attive (ISO 14001, Ecolabel, EMAS)",
+          "peso": 0.25
+        },
+        "consumi": {
+          "descrizione": "Consumi energetici per unità di fatturato — trend YoY",
+          "peso": 0.25
+        },
+        "km0": {
+          "descrizione": "Percentuale approvvigionamenti entro 100km",
+          "peso": 0.20
+        },
+        "rifiuti": {
+          "descrizione": "Percentuale scarti riciclati o valorizzati",
+          "peso": 0.20
+        },
+        "carbonio": {
+          "descrizione": "Carbon footprint dichiarata e verificabile",
+          "peso": 0.10
+        }
+      }
+    },
+    "KPI_TERRITORIALE": {
+      "id": "KPI_TERRITORIALE",
+      "type": "KPI",
+      "label": "KPI Dimensione Territoriale (Vt)",
+      "peso_formula": 0.25,
+      "scala": "0–100",
+      "indicatori": {
+        "radicamento": {
+          "descrizione": "Anni di presenza nel territorio e sede locale stabile",
+          "peso": 0.25
+        },
+        "filiera": {
+          "descrizione": "Percentuale fornitori locali verificati",
+          "peso": 0.25
+        },
+        "indotto": {
+          "descrizione": "Impatto occupazionale indiretto sul territorio",
+          "peso": 0.20
+        },
+        "ecosistema": {
+          "descrizione": "Partecipazione ad associazioni, consorzi, reti territoriali",
+          "peso": 0.20
+        },
+        "digitale": {
+          "descrizione": "Livello di innovazione digitale e identità online verificabile",
+          "peso": 0.10
+        }
+      }
+    }
+  },
+  "edges": [
+    {"from": "COGNITIVE_LOGIC", "to": "QEN_COMPLIANCE_ENGINE", "type": "OPERA_CON"},
+    {"from": "COGNITIVE_LOGIC", "to": "FUORIMENU", "type": "PUBBLICA"},
+    {"from": "COGNITIVE_LOGIC", "to": "CNA_BOLOGNA", "type": "PARTNERSHIP_PROPOSTA"},
+    {"from": "COGNITIVE_LOGIC", "to": "HOTELLERIE_RIVIERA", "type": "MAPPATURA_IN_CORSO"},
+    {"from": "QEN_COMPLIANCE_ENGINE", "to": "COLT_IN_FRAGRANZA", "type": "SCORING_APPLICATO"},
+    {"from": "QEN_COMPLIANCE_ENGINE", "to": "BOLOGNA_100_BOTTEGHE", "type": "SCORING_APPLICATO"},
+    {"from": "QEN_COMPLIANCE_ENGINE", "to": "VEGANOO", "type": "SCORING_APPLICATO"},
+    {"from": "QEN_COMPLIANCE_ENGINE", "to": "CNA_BOLOGNA", "type": "SCORING_APPLICATO"},
+    {"from": "QEN_COMPLIANCE_ENGINE", "to": "HOTELLERIE_RIVIERA", "type": "SCORING_APPLICATO"},
+    {"from": "FUORIMENU", "to": "COLT_IN_FRAGRANZA", "type": "OSSERVA"},
+    {"from": "FUORIMENU", "to": "VEGANOO", "type": "OSSERVA"},
+    {"from": "CNA_BOLOGNA", "to": "BOLOGNA_100_BOTTEGHE", "type": "TERRITORIO_DI"},
+    {"from": "HOTELLERIE_RIVIERA", "to": "ATLANTIC_HOTELS", "type": "CONTIENE"},
+    {"from": "HOTELLERIE_RIVIERA", "to": "MAXIMILIANS", "type": "CONTIENE"},
+    {"from": "HOTELLERIE_RIVIERA", "to": "DV_HOTELS", "type": "CONTIENE"},
+    {"from": "HOTELLERIE_RIVIERA", "to": "DEVIRA", "type": "CONTIENE"},
+    {"from": "HOTELLERIE_RIVIERA", "to": "COSTA_HOTELS", "type": "CONTIENE"},
+    {"from": "QEN_COMPLIANCE_ENGINE", "to": "ATLANTIC_HOTELS", "type": "SCORING_APPLICATO"},
+    {"from": "QEN_COMPLIANCE_ENGINE", "to": "MAXIMILIANS", "type": "SCORING_APPLICATO"},
+    {"from": "QEN_COMPLIANCE_ENGINE", "to": "DV_HOTELS", "type": "SCORING_APPLICATO"},
+    {"from": "QEN_COMPLIANCE_ENGINE", "to": "REG_EU_AI_ACT_I", "type": "APPLICA_REGOLAMENTO"},
+    {"from": "QEN_COMPLIANCE_ENGINE", "to": "REG_EU_AI_ACT_II", "type": "APPLICA_REGOLAMENTO"},
+    {"from": "QEN_COMPLIANCE_ENGINE", "to": "REG_EU_AI_ACT_III", "type": "APPLICA_REGOLAMENTO"},
+    {"from": "QEN_COMPLIANCE_ENGINE", "to": "REG_GDPR_ART22", "type": "APPLICA_REGOLAMENTO"},
+    {"from": "QEN_COMPLIANCE_ENGINE", "to": "REG_GDPR_ART35", "type": "APPLICA_REGOLAMENTO"},
+    {"from": "REG_EU_AI_ACT_III", "to": "ATLANTIC_HOTELS", "type": "NORMATIVA_APPLICABILE"},
+    {"from": "REG_EU_AI_ACT_III", "to": "MAXIMILIANS", "type": "NORMATIVA_APPLICABILE"},
+    {"from": "REG_EU_AI_ACT_III", "to": "DV_HOTELS", "type": "NORMATIVA_APPLICABILE"},
+    {"from": "REG_EU_AI_ACT_III", "to": "DEVIRA", "type": "NORMATIVA_APPLICABILE"},
+    {"from": "REG_EU_AI_ACT_III", "to": "COSTA_HOTELS", "type": "NORMATIVA_APPLICABILE"},
+    {"from": "REG_GDPR_ART22", "to": "QEN_COMPLIANCE_ENGINE", "type": "VINCOLA"},
+    {"from": "REG_GDPR_ART35", "to": "QEN_COMPLIANCE_ENGINE", "type": "VINCOLA"},
+    {"from": "KPI_SOCIALE", "to": "QEN_COMPLIANCE_ENGINE", "type": "ALIMENTA"},
+    {"from": "KPI_AMBIENTALE", "to": "QEN_COMPLIANCE_ENGINE", "type": "ALIMENTA"},
+    {"from": "KPI_TERRITORIALE", "to": "QEN_COMPLIANCE_ENGINE", "type": "ALIMENTA"}
+  ]
+}
