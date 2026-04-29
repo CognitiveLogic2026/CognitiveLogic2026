@@ -1,13 +1,13 @@
 {
   "meta": {
     "name": "QEN - Quantum Ethics Network",
-    "version": "4.0",
+    "version": "4.1",
     "author": "Roberto Bob Malini | Cognitive Logic",
-    "created": "2026-04-25",
+    "created": "2026-04-29",
     "description": "Pure Data Graph — 21 nodi | Cognitive Logic Observatory",
     "formula": "QEN Score = Vs*0.40 + Va*0.35 + Vt*0.25",
     "nodi": 21,
-    "relazioni": 34
+    "relazioni": 35
   },
   "nodes": {
     "COGNITIVE_LOGIC": {
@@ -62,10 +62,10 @@
         "totale": 89.75
       }
     },
-    "COLT_IN_FRAGRANZA": {
-      "id": "COLT_IN_FRAGRANZA",
+    "COLTINFRAGRANZA": {
+      "id": "COLTINFRAGRANZA",
       "type": "Algoritmo",
-      "label": "Colt in Fragranza",
+      "label": "Coltinfragranza",
       "descrizione": "Algoritmo di scoring etico per la ristorazione indipendente italiana.",
       "settore": "Ristorazione",
       "stato": "ATTIVO",
@@ -87,7 +87,7 @@
         "vs": 80,
         "va": 65,
         "vt": 95,
-        "totale": 79.75
+        "totale": 78.75
       }
     },
     "VEGANOO": {
