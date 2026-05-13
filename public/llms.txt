@@ -1,0 +1,12 @@
+# QEN Framework AI Index | May 2026
+
+Claude Sonnet 4 (Anthropic)
+- EU AI Act compliance + transparency
+- <1s latency | $3/$15 per 1M tokens
+
+Gemini 2.0 Flash (Google)
+- Real-time multi-modal scoring
+- <500ms latency | $0.075/$0.3 per 1M tokens
+
+API: https://api.cognitivelogic.it/health
+Status: 🟢 Live | 99.9% uptime
