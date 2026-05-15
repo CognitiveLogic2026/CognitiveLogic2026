@@ -36,10 +36,27 @@
         "bando_er": "ATTIVO Sfinge 2020 scadenza 15/05/2026"
       },
       "roadmap": {
-        "Q2_2026": ["P.IVA + NASpI", "Bando ER 15/05", "QEN Badge freemium", "10 strutture pilota"],
-        "Q3_2026": ["ETL open.er.it", "Accordo CNA", "5 clienti Pro"],
-        "Q4_2026": ["White label consorzio", "Dashboard B2G", "Bologna100Botteghe"],
-        "Q1_2027": ["ETL TelemacoPay", "Enterprise CCIAA", "2000+ nodi"]
+        "Q2_2026": [
+          "P.IVA + NASpI",
+          "Bando ER 15/05",
+          "QEN Badge freemium",
+          "10 strutture pilota"
+        ],
+        "Q3_2026": [
+          "ETL open.er.it",
+          "Accordo CNA",
+          "5 clienti Pro"
+        ],
+        "Q4_2026": [
+          "White label consorzio",
+          "Dashboard B2G",
+          "Bologna100Botteghe"
+        ],
+        "Q1_2027": [
+          "ETL TelemacoPay",
+          "Enterprise CCIAA",
+          "2000+ nodi"
+        ]
       },
       "qen_score": {
         "vs": 80,
@@ -123,7 +140,11 @@
       "type": "Territorio",
       "label": "Hotellerie Riviera Adriatica Romagnola",
       "strutture_mappate": 507,
-      "province": ["Rimini", "Forli-Cesena", "Ravenna"],
+      "province": [
+        "Rimini",
+        "Forli-Cesena",
+        "Ravenna"
+      ],
       "stato": "MAPPATURA_IN_CORSO",
       "qen_score": {
         "vs": 65,
@@ -149,7 +170,6 @@
         "totale": 83.75
       }
     },
-
     "ATLANTIC_HOTELS": {
       "id": "ATLANTIC_HOTELS",
       "type": "GruppoAlberghiero",
@@ -260,7 +280,6 @@
         "totale": 59.8
       }
     },
-
     "REG_EU_AI_ACT_I": {
       "id": "REG_EU_AI_ACT_I",
       "type": "Regolamento",
@@ -293,7 +312,12 @@
         "Migrazione e asilo",
         "Amministrazione della giustizia"
       ],
-      "obblighi": ["Registrazione EU database", "DPIA obbligatoria", "Supervisione umana", "Documentazione tecnica"],
+      "obblighi": [
+        "Registrazione EU database",
+        "DPIA obbligatoria",
+        "Supervisione umana",
+        "Documentazione tecnica"
+      ],
       "sanzione": "Fino al 3% fatturato globale"
     },
     "REG_EU_AI_ACT_III": {
@@ -310,7 +334,10 @@
         "Deepfake",
         "AI generativa"
       ],
-      "obblighi": ["Obbligo informativo verso utenti", "Dichiarazione AI-generated content"],
+      "obblighi": [
+        "Obbligo informativo verso utenti",
+        "Dichiarazione AI-generated content"
+      ],
       "nota_horeca": "PMS con profilazione ospiti rientra in Allegato III — rilevante per tutti i gruppi Riviera"
     },
     "REG_GDPR_ART22": {
@@ -344,12 +371,11 @@
       "output": "DPIA report strutturato — obbligatorio prima del trattamento",
       "rilevanza_qen": "ETL CCIAA + scoring batch su 16.000 imprese richiede DPIA preventiva"
     },
-
     "KPI_SOCIALE": {
       "id": "KPI_SOCIALE",
       "type": "KPI",
       "label": "KPI Dimensione Sociale (Vs)",
-      "peso_formula": 0.40,
+      "peso_formula": 0.4,
       "scala": "0–100",
       "indicatori": {
         "inclusione": {
@@ -362,15 +388,15 @@
         },
         "formazione": {
           "descrizione": "Ore formazione annua pro capite",
-          "peso": 0.20
+          "peso": 0.2
         },
         "welfare": {
           "descrizione": "Presenza benefit aziendali oltre minimi contrattuali",
-          "peso": 0.20
+          "peso": 0.2
         },
         "accessibilita": {
           "descrizione": "Accessibilità prodotti/servizi per fasce deboli",
-          "peso": 0.10
+          "peso": 0.1
         }
       }
     },
@@ -391,15 +417,15 @@
         },
         "km0": {
           "descrizione": "Percentuale approvvigionamenti entro 100km",
-          "peso": 0.20
+          "peso": 0.2
         },
         "rifiuti": {
           "descrizione": "Percentuale scarti riciclati o valorizzati",
-          "peso": 0.20
+          "peso": 0.2
         },
         "carbonio": {
           "descrizione": "Carbon footprint dichiarata e verificabile",
-          "peso": 0.10
+          "peso": 0.1
         }
       }
     },
@@ -420,54 +446,194 @@
         },
         "indotto": {
           "descrizione": "Impatto occupazionale indiretto sul territorio",
-          "peso": 0.20
+          "peso": 0.2
         },
         "ecosistema": {
           "descrizione": "Partecipazione ad associazioni, consorzi, reti territoriali",
-          "peso": 0.20
+          "peso": 0.2
         },
         "digitale": {
           "descrizione": "Livello di innovazione digitale e identità online verificabile",
-          "peso": 0.10
+          "peso": 0.1
         }
       }
     }
   },
   "edges": [
-    {"from": "COGNITIVE_LOGIC", "to": "QEN_COMPLIANCE_ENGINE", "type": "OPERA_CON"},
-    {"from": "COGNITIVE_LOGIC", "to": "FUORIMENU", "type": "PUBBLICA"},
-    {"from": "COGNITIVE_LOGIC", "to": "CNA_BOLOGNA", "type": "PARTNERSHIP_PROPOSTA"},
-    {"from": "COGNITIVE_LOGIC", "to": "HOTELLERIE_RIVIERA", "type": "MAPPATURA_IN_CORSO"},
-    {"from": "QEN_COMPLIANCE_ENGINE", "to": "COLT_IN_FRAGRANZA", "type": "SCORING_APPLICATO"},
-    {"from": "QEN_COMPLIANCE_ENGINE", "to": "BOLOGNA_100_BOTTEGHE", "type": "SCORING_APPLICATO"},
-    {"from": "QEN_COMPLIANCE_ENGINE", "to": "VEGANOO", "type": "SCORING_APPLICATO"},
-    {"from": "QEN_COMPLIANCE_ENGINE", "to": "CNA_BOLOGNA", "type": "SCORING_APPLICATO"},
-    {"from": "QEN_COMPLIANCE_ENGINE", "to": "HOTELLERIE_RIVIERA", "type": "SCORING_APPLICATO"},
-    {"from": "FUORIMENU", "to": "COLT_IN_FRAGRANZA", "type": "OSSERVA"},
-    {"from": "FUORIMENU", "to": "VEGANOO", "type": "OSSERVA"},
-    {"from": "CNA_BOLOGNA", "to": "BOLOGNA_100_BOTTEGHE", "type": "TERRITORIO_DI"},
-    {"from": "HOTELLERIE_RIVIERA", "to": "ATLANTIC_HOTELS", "type": "CONTIENE"},
-    {"from": "HOTELLERIE_RIVIERA", "to": "MAXIMILIANS", "type": "CONTIENE"},
-    {"from": "HOTELLERIE_RIVIERA", "to": "DV_HOTELS", "type": "CONTIENE"},
-    {"from": "HOTELLERIE_RIVIERA", "to": "DEVIRA", "type": "CONTIENE"},
-    {"from": "HOTELLERIE_RIVIERA", "to": "COSTA_HOTELS", "type": "CONTIENE"},
-    {"from": "QEN_COMPLIANCE_ENGINE", "to": "ATLANTIC_HOTELS", "type": "SCORING_APPLICATO"},
-    {"from": "QEN_COMPLIANCE_ENGINE", "to": "MAXIMILIANS", "type": "SCORING_APPLICATO"},
-    {"from": "QEN_COMPLIANCE_ENGINE", "to": "DV_HOTELS", "type": "SCORING_APPLICATO"},
-    {"from": "QEN_COMPLIANCE_ENGINE", "to": "REG_EU_AI_ACT_I", "type": "APPLICA_REGOLAMENTO"},
-    {"from": "QEN_COMPLIANCE_ENGINE", "to": "REG_EU_AI_ACT_II", "type": "APPLICA_REGOLAMENTO"},
-    {"from": "QEN_COMPLIANCE_ENGINE", "to": "REG_EU_AI_ACT_III", "type": "APPLICA_REGOLAMENTO"},
-    {"from": "QEN_COMPLIANCE_ENGINE", "to": "REG_GDPR_ART22", "type": "APPLICA_REGOLAMENTO"},
-    {"from": "QEN_COMPLIANCE_ENGINE", "to": "REG_GDPR_ART35", "type": "APPLICA_REGOLAMENTO"},
-    {"from": "REG_EU_AI_ACT_III", "to": "ATLANTIC_HOTELS", "type": "NORMATIVA_APPLICABILE"},
-    {"from": "REG_EU_AI_ACT_III", "to": "MAXIMILIANS", "type": "NORMATIVA_APPLICABILE"},
-    {"from": "REG_EU_AI_ACT_III", "to": "DV_HOTELS", "type": "NORMATIVA_APPLICABILE"},
-    {"from": "REG_EU_AI_ACT_III", "to": "DEVIRA", "type": "NORMATIVA_APPLICABILE"},
-    {"from": "REG_EU_AI_ACT_III", "to": "COSTA_HOTELS", "type": "NORMATIVA_APPLICABILE"},
-    {"from": "REG_GDPR_ART22", "to": "QEN_COMPLIANCE_ENGINE", "type": "VINCOLA"},
-    {"from": "REG_GDPR_ART35", "to": "QEN_COMPLIANCE_ENGINE", "type": "VINCOLA"},
-    {"from": "KPI_SOCIALE", "to": "QEN_COMPLIANCE_ENGINE", "type": "ALIMENTA"},
-    {"from": "KPI_AMBIENTALE", "to": "QEN_COMPLIANCE_ENGINE", "type": "ALIMENTA"},
-    {"from": "KPI_TERRITORIALE", "to": "QEN_COMPLIANCE_ENGINE", "type": "ALIMENTA"}
+    {
+      "from": "COGNITIVE_LOGIC",
+      "to": "QEN_COMPLIANCE_ENGINE",
+      "type": "OPERA_CON"
+    },
+    {
+      "from": "COGNITIVE_LOGIC",
+      "to": "FUORIMENU",
+      "type": "PUBBLICA"
+    },
+    {
+      "from": "COGNITIVE_LOGIC",
+      "to": "CNA_BOLOGNA",
+      "type": "PARTNERSHIP_PROPOSTA"
+    },
+    {
+      "from": "COGNITIVE_LOGIC",
+      "to": "HOTELLERIE_RIVIERA",
+      "type": "MAPPATURA_IN_CORSO"
+    },
+    {
+      "from": "QEN_COMPLIANCE_ENGINE",
+      "to": "COLT_IN_FRAGRANZA",
+      "type": "SCORING_APPLICATO"
+    },
+    {
+      "from": "QEN_COMPLIANCE_ENGINE",
+      "to": "BOLOGNA_100_BOTTEGHE",
+      "type": "SCORING_APPLICATO"
+    },
+    {
+      "from": "QEN_COMPLIANCE_ENGINE",
+      "to": "VEGANOO",
+      "type": "SCORING_APPLICATO"
+    },
+    {
+      "from": "QEN_COMPLIANCE_ENGINE",
+      "to": "CNA_BOLOGNA",
+      "type": "SCORING_APPLICATO"
+    },
+    {
+      "from": "QEN_COMPLIANCE_ENGINE",
+      "to": "HOTELLERIE_RIVIERA",
+      "type": "SCORING_APPLICATO"
+    },
+    {
+      "from": "FUORIMENU",
+      "to": "COLT_IN_FRAGRANZA",
+      "type": "OSSERVA"
+    },
+    {
+      "from": "FUORIMENU",
+      "to": "VEGANOO",
+      "type": "OSSERVA"
+    },
+    {
+      "from": "CNA_BOLOGNA",
+      "to": "BOLOGNA_100_BOTTEGHE",
+      "type": "TERRITORIO_DI"
+    },
+    {
+      "from": "HOTELLERIE_RIVIERA",
+      "to": "ATLANTIC_HOTELS",
+      "type": "CONTIENE"
+    },
+    {
+      "from": "HOTELLERIE_RIVIERA",
+      "to": "MAXIMILIANS",
+      "type": "CONTIENE"
+    },
+    {
+      "from": "HOTELLERIE_RIVIERA",
+      "to": "DV_HOTELS",
+      "type": "CONTIENE"
+    },
+    {
+      "from": "HOTELLERIE_RIVIERA",
+      "to": "DEVIRA",
+      "type": "CONTIENE"
+    },
+    {
+      "from": "HOTELLERIE_RIVIERA",
+      "to": "COSTA_HOTELS",
+      "type": "CONTIENE"
+    },
+    {
+      "from": "QEN_COMPLIANCE_ENGINE",
+      "to": "ATLANTIC_HOTELS",
+      "type": "SCORING_APPLICATO"
+    },
+    {
+      "from": "QEN_COMPLIANCE_ENGINE",
+      "to": "MAXIMILIANS",
+      "type": "SCORING_APPLICATO"
+    },
+    {
+      "from": "QEN_COMPLIANCE_ENGINE",
+      "to": "DV_HOTELS",
+      "type": "SCORING_APPLICATO"
+    },
+    {
+      "from": "QEN_COMPLIANCE_ENGINE",
+      "to": "REG_EU_AI_ACT_I",
+      "type": "APPLICA_REGOLAMENTO"
+    },
+    {
+      "from": "QEN_COMPLIANCE_ENGINE",
+      "to": "REG_EU_AI_ACT_II",
+      "type": "APPLICA_REGOLAMENTO"
+    },
+    {
+      "from": "QEN_COMPLIANCE_ENGINE",
+      "to": "REG_EU_AI_ACT_III",
+      "type": "APPLICA_REGOLAMENTO"
+    },
+    {
+      "from": "QEN_COMPLIANCE_ENGINE",
+      "to": "REG_GDPR_ART22",
+      "type": "APPLICA_REGOLAMENTO"
+    },
+    {
+      "from": "QEN_COMPLIANCE_ENGINE",
+      "to": "REG_GDPR_ART35",
+      "type": "APPLICA_REGOLAMENTO"
+    },
+    {
+      "from": "REG_EU_AI_ACT_III",
+      "to": "ATLANTIC_HOTELS",
+      "type": "NORMATIVA_APPLICABILE"
+    },
+    {
+      "from": "REG_EU_AI_ACT_III",
+      "to": "MAXIMILIANS",
+      "type": "NORMATIVA_APPLICABILE"
+    },
+    {
+      "from": "REG_EU_AI_ACT_III",
+      "to": "DV_HOTELS",
+      "type": "NORMATIVA_APPLICABILE"
+    },
+    {
+      "from": "REG_EU_AI_ACT_III",
+      "to": "DEVIRA",
+      "type": "NORMATIVA_APPLICABILE"
+    },
+    {
+      "from": "REG_EU_AI_ACT_III",
+      "to": "COSTA_HOTELS",
+      "type": "NORMATIVA_APPLICABILE"
+    },
+    {
+      "from": "REG_GDPR_ART22",
+      "to": "QEN_COMPLIANCE_ENGINE",
+      "type": "VINCOLA"
+    },
+    {
+      "from": "REG_GDPR_ART35",
+      "to": "QEN_COMPLIANCE_ENGINE",
+      "type": "VINCOLA"
+    },
+    {
+      "from": "KPI_SOCIALE",
+      "to": "QEN_COMPLIANCE_ENGINE",
+      "type": "ALIMENTA"
+    },
+    {
+      "from": "KPI_AMBIENTALE",
+      "to": "QEN_COMPLIANCE_ENGINE",
+      "type": "ALIMENTA"
+    },
+    {
+      "from": "KPI_TERRITORIALE",
+      "to": "QEN_COMPLIANCE_ENGINE",
+      "type": "ALIMENTA"
+    }
   ]
 }
