@@ -32,14 +32,31 @@
       "stato": {
         "copilot": "LIVE api.cognitivelogic.it/copilot",
         "graph": "LIVE 8 nodi / 12 relazioni — v3",
-        "piva": "IN CORSO ATECO 62.01.09 forfettario",
+        "piva": "IN APERTURA — Approccio Partita IVA forfettario ATECO 62.01.09",
         "bando_er": "ATTIVO Sfinge 2020 scadenza 15/05/2026"
       },
       "roadmap": {
-        "Q2_2026": ["P.IVA + NASpI", "Bando ER 15/05", "QEN Badge freemium", "10 strutture pilota"],
-        "Q3_2026": ["ETL open.er.it", "Accordo CNA", "5 clienti Pro"],
-        "Q4_2026": ["White label consorzio", "Dashboard B2G", "Bologna100Botteghe"],
-        "Q1_2027": ["ETL TelemacoPay", "Enterprise CCIAA", "2000+ nodi"]
+        "Q2_2026": [
+          "Apertura Partita IVA",
+          "Bando ER 15/05",
+          "QEN Badge freemium",
+          "10 strutture pilota"
+        ],
+        "Q3_2026": [
+          "ETL open.er.it",
+          "Accordo CNA",
+          "5 clienti Pro"
+        ],
+        "Q4_2026": [
+          "White label consorzio",
+          "Dashboard B2G",
+          "Bologna100Botteghe"
+        ],
+        "Q1_2027": [
+          "ETL TelemacoPay",
+          "Enterprise CCIAA",
+          "2000+ nodi"
+        ]
       },
       "ricavi": {
         "anno_1": 22200,
@@ -73,9 +90,36 @@
         "pmi": "Software HR, CRM scoring, sorveglianza"
       },
       "scoring": {
-        "sociale": {"peso": 0.40, "indicatori": ["inclusione", "contratti", "formazione", "welfare", "genere"]},
-        "ambientale": {"peso": 0.35, "indicatori": ["cert_green", "consumi", "km0", "rifiuti", "carbonio"]},
-        "territoriale": {"peso": 0.25, "indicatori": ["radicamento", "filiera", "indotto", "ecosistema", "digitale"]}
+        "sociale": {
+          "peso": 0.4,
+          "indicatori": [
+            "inclusione",
+            "contratti",
+            "formazione",
+            "welfare",
+            "genere"
+          ]
+        },
+        "ambientale": {
+          "peso": 0.35,
+          "indicatori": [
+            "cert_green",
+            "consumi",
+            "km0",
+            "rifiuti",
+            "carbonio"
+          ]
+        },
+        "territoriale": {
+          "peso": 0.25,
+          "indicatori": [
+            "radicamento",
+            "filiera",
+            "indotto",
+            "ecosistema",
+            "digitale"
+          ]
+        }
       },
       "prodotti": {
         "copilot": {
@@ -128,7 +172,13 @@
       "etl": {
         "fonte": "TelemacoPay CCIAA Bologna",
         "costo_annuo": 800,
-        "dati": ["ATECO", "CAP", "fascia_dip", "anzianita", "DURC"],
+        "dati": [
+          "ATECO",
+          "CAP",
+          "fascia_dip",
+          "anzianita",
+          "DURC"
+        ],
         "privacy": "Solo aggregati anonimizzati"
       },
       "stato": "Q4_2026",
@@ -156,7 +206,7 @@
         "sociale": 7.5,
         "ambientale": 9.0,
         "territoriale": 7.0,
-        "totale": 7.90
+        "totale": 7.9
       }
     },
     "CNA_BOLOGNA": {
@@ -170,9 +220,16 @@
       "sede": "Viale Aldo Moro 22, 40127 Bologna",
       "presidente": "Antonio Gramuglia",
       "ateco_prevalenti": [
-        "43-Costruzioni", "41-Edifici", "10-Alimentari",
-        "56-Ristorazione", "45-Veicoli", "96-Servizi",
-        "25-Metallo", "33-Riparazione", "62-IT", "74-Professioni"
+        "43-Costruzioni",
+        "41-Edifici",
+        "10-Alimentari",
+        "56-Ristorazione",
+        "45-Veicoli",
+        "96-Servizi",
+        "25-Metallo",
+        "33-Riparazione",
+        "62-IT",
+        "74-Professioni"
       ],
       "compliance_gap": {
         "eu_ai_act": "0% PMI associate con classificazione Allegati I-III",
@@ -198,7 +255,11 @@
       "type": "Territorio",
       "label": "Hotellerie Riviera Adriatica Romagnola",
       "strutture_mappate": 507,
-      "province": ["Rimini", "Forli-Cesena", "Ravenna"],
+      "province": [
+        "Rimini",
+        "Forli-Cesena",
+        "Ravenna"
+      ],
       "compliance_obbligatoria": {
         "cin": "Codice Identificativo Nazionale — obbligatorio 2024",
         "cir": "Codice Identificativo Regionale ER",
@@ -207,12 +268,30 @@
         "eu_ai_act_III": "PMS con profilazione = Allegato III"
       },
       "gruppi_prioritari": {
-        "atlantic": {"strutture": 6, "stato": "MAPPATO"},
-        "maximilians": {"strutture": 5, "stato": "PRIORITA 1"},
-        "dv_hotels": {"strutture": 6, "stato": "PRIORITA 1"},
-        "devira": {"strutture": 6, "stato": "DA MAPPARE"},
-        "costa_hotels": {"strutture": 30, "stato": "DA MAPPARE"},
-        "club_del_sole": {"strutture": 10, "stato": "DA MAPPARE"}
+        "atlantic": {
+          "strutture": 6,
+          "stato": "MAPPATO"
+        },
+        "maximilians": {
+          "strutture": 5,
+          "stato": "PRIORITA 1"
+        },
+        "dv_hotels": {
+          "strutture": 6,
+          "stato": "PRIORITA 1"
+        },
+        "devira": {
+          "strutture": 6,
+          "stato": "DA MAPPARE"
+        },
+        "costa_hotels": {
+          "strutture": 30,
+          "stato": "DA MAPPARE"
+        },
+        "club_del_sole": {
+          "strutture": 10,
+          "stato": "DA MAPPARE"
+        }
       },
       "etl_pipeline": {
         "fonte_primaria": "open.er.it — no API key",
@@ -257,17 +336,65 @@
     }
   },
   "edges": [
-    {"from": "COGNITIVE_LOGIC", "to": "QEN_COMPLIANCE_ENGINE", "type": "OPERA_CON"},
-    {"from": "COGNITIVE_LOGIC", "to": "FUORIMENU", "type": "PUBBLICA"},
-    {"from": "COGNITIVE_LOGIC", "to": "CNA_BOLOGNA", "type": "PARTNERSHIP_PROPOSTA"},
-    {"from": "COGNITIVE_LOGIC", "to": "HOTELLERIE_RIVIERA", "type": "MAPPATURA_IN_CORSO"},
-    {"from": "QEN_COMPLIANCE_ENGINE", "to": "COLT_IN_FRAGRANZA", "type": "SCORING_APPLICATO"},
-    {"from": "QEN_COMPLIANCE_ENGINE", "to": "BOLOGNA_100_BOTTEGHE", "type": "SCORING_APPLICATO"},
-    {"from": "QEN_COMPLIANCE_ENGINE", "to": "VEGANOO", "type": "SCORING_APPLICATO"},
-    {"from": "QEN_COMPLIANCE_ENGINE", "to": "CNA_BOLOGNA", "type": "SCORING_APPLICATO"},
-    {"from": "QEN_COMPLIANCE_ENGINE", "to": "HOTELLERIE_RIVIERA", "type": "SCORING_APPLICATO"},
-    {"from": "FUORIMENU", "to": "COLT_IN_FRAGRANZA", "type": "OSSERVA"},
-    {"from": "FUORIMENU", "to": "VEGANOO", "type": "OSSERVA"},
-    {"from": "CNA_BOLOGNA", "to": "BOLOGNA_100_BOTTEGHE", "type": "TERRITORIO_DI"}
+    {
+      "from": "COGNITIVE_LOGIC",
+      "to": "QEN_COMPLIANCE_ENGINE",
+      "type": "OPERA_CON"
+    },
+    {
+      "from": "COGNITIVE_LOGIC",
+      "to": "FUORIMENU",
+      "type": "PUBBLICA"
+    },
+    {
+      "from": "COGNITIVE_LOGIC",
+      "to": "CNA_BOLOGNA",
+      "type": "PARTNERSHIP_PROPOSTA"
+    },
+    {
+      "from": "COGNITIVE_LOGIC",
+      "to": "HOTELLERIE_RIVIERA",
+      "type": "MAPPATURA_IN_CORSO"
+    },
+    {
+      "from": "QEN_COMPLIANCE_ENGINE",
+      "to": "COLT_IN_FRAGRANZA",
+      "type": "SCORING_APPLICATO"
+    },
+    {
+      "from": "QEN_COMPLIANCE_ENGINE",
+      "to": "BOLOGNA_100_BOTTEGHE",
+      "type": "SCORING_APPLICATO"
+    },
+    {
+      "from": "QEN_COMPLIANCE_ENGINE",
+      "to": "VEGANOO",
+      "type": "SCORING_APPLICATO"
+    },
+    {
+      "from": "QEN_COMPLIANCE_ENGINE",
+      "to": "CNA_BOLOGNA",
+      "type": "SCORING_APPLICATO"
+    },
+    {
+      "from": "QEN_COMPLIANCE_ENGINE",
+      "to": "HOTELLERIE_RIVIERA",
+      "type": "SCORING_APPLICATO"
+    },
+    {
+      "from": "FUORIMENU",
+      "to": "COLT_IN_FRAGRANZA",
+      "type": "OSSERVA"
+    },
+    {
+      "from": "FUORIMENU",
+      "to": "VEGANOO",
+      "type": "OSSERVA"
+    },
+    {
+      "from": "CNA_BOLOGNA",
+      "to": "BOLOGNA_100_BOTTEGHE",
+      "type": "TERRITORIO_DI"
+    }
   ]
 }
