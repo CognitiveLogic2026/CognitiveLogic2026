@@ -32,12 +32,12 @@
       "stato": {
         "copilot": "LIVE api.cognitivelogic.it/copilot",
         "graph": "LIVE 21 nodi / 34 relazioni — v4",
-        "piva": "IN CORSO ATECO 62.01.09 forfettario",
+        "piva": "IN APERTURA — Approccio Partita IVA forfettario ATECO 62.01.09",
         "bando_er": "ATTIVO Sfinge 2020 scadenza 15/05/2026"
       },
       "roadmap": {
         "Q2_2026": [
-          "P.IVA + NASpI",
+          "Apertura Partita IVA",
           "Bando ER 15/05",
           "QEN Badge freemium",
           "10 strutture pilota"
